@@ -1,0 +1,161 @@
+/* YOU'RE THE DESIGNER!
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.bg_grey {
+	background-color: #2D2E35 !important;
+}
+
+.bg_green {
+	background-color: #5b8 !important;
+}
+
+.bg_purple {
+	background-color: #85b !important;
+}
+
+.bg_pink {
+	background-color: #e59 !important;
+}
+
+.pyscript {
+	color: #FDA703;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.slider pre code {
+	text-align: left !important;
+    margin-left: 15%;
+    font-size: 1.5em;
+}
+
+.slider p code {
+	text-align: left !important;
+    margin-left: 10%;
+    font-size: 1em;
+}
+
+.CSSgal{
+	color: #fff;
+	text-align: center;
+}
+
+/* Text in REPLs should always align left */
+.CSSgal div.cm-line {
+	text-align: left;
+	color: black;
+}
+
+.CSSgal div.cm-scroller{
+	background-color: white;
+}
+
+.CSSgal .slider h2 {
+	margin-top: 40vh;
+	font-weight: 200;
+	letter-spacing: -0.06em;
+	word-spacing: 0.2em;
+	font-size: 3em;
+}
+.CSSgal a {
+	border-radius: 50%;
+	margin: 0 3px;
+	color: rgba(0,0,0,0.8);
+	text-decoration: none;
+}
+
+/* Slides  */
+.presenter-title{
+	width: 600px;
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: left;
+}
+
+.slider div h1{
+    font-size: 3.4em;
+    text-align: left;
+    margin-left: 10%;
+	margin-bottom: 50px;
+}
+
+.slider div.single-title h1{
+    font-size: 3em;
+	margin-bottom: 50px;
+	height: 100%;
+    margin: auto;
+	margin-top: 40%;
+    text-align: center;
+}
+
+.slider div.centred {
+	margin-bottom: 50px;
+	height: 100%;
+    margin: auto;
+	margin-top: 20%;
+    text-align: center;
+}
+
+.slider div.single-title h1.centred{
+    font-size: 3.5em;
+	margin-bottom: 50px;
+	height: 100%;
+    margin: auto;
+	margin-top: 20%;
+    text-align: center;
+}
+
+.slider div.single-title img{
+	margin: auto;
+	height:30%;
+     /*margin-top: 20px;*/
+}
+
+.slider div.single-title-meme img{
+	margin: auto;
+	height:70%;
+    margin-top: 5%;
+}
+
+.slider div.single-title-meme h1{
+	font-size: 3em;
+	margin-bottom: 50px;
+	height: 100%;
+    margin: auto;
+	margin-top: 20px;
+    text-align: center;
+}
+
+.slider div p{
+	text-align: left;
+    margin-left: 15%;
+	margin-bottom: 1em;
+	font-size: 2em;
+}
+
+.slider div ul{
+	text-align: left;
+    margin-left: 20%;
+	font-size: 2em;
+	list-style: disc;
+
+	margin-bottom: 50px;
+}
+
+.slider div ul il ul{
+	text-align: left;
+    margin-left: 20%;
+	font-size: 1.8em;
+	list-style: disc;
+
+	margin-bottom: 50px;
+}
+
+.slide-source-btn a {
+	border-radius: 50%;
+	margin: 0 3px;
+	color: rgba(0,0,0,0.8);
+	text-decoration: none;
+}
