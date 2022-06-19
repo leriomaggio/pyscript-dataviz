@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>Bokeh Example</title>
+    <meta charset="iso-8859-1">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js"></script>
+
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.1/dist/bundled/bootstraptemplate/bootstrap.css">
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.1/dist/bundled/defaulttheme/default.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <style>
+        #sidebar {
+            width: 400px;
+            padding: 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+</head>
+<body>
+<py-env>
+    - bokeh
+    - numpy
+</py-env>
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header" style="background-color: #000000;">
+        <button type="button" class="navbar-toggle collapsed" id="sidebarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="app-header">
+            <a class="navbar-brand app-logo" href="/">
+                <img src="./logo.png" class="app-logo">
+            </a>
+            <a class="title" href="" style="color: #f0ab3c;">Bokeh Example</a>
+        </div>
+    </nav>
+
+    <div class="d-flex flex-nowrap" id="content">
+        <div class="sidenav" id="sidebar">
+            <ul class="nav flex-column">
+                <div class="bk-root" id="widgets"></div>
+            </ul>
+        </div>
+        <div id="myplot"></div>
+    </div>
+</div>
+<py-script id="main">
+    import json
+    import pyodide
+    import numpy as np
+
+    from js import Bokeh, console, JSON
+
+    from bokeh.embed import json_item
+    from bokeh.plotting import figure
+    from bokeh.resources import CDN
+
+    # create a new plot with default tools, using figure
+    p = figure(plot_width=400, plot_height=400)
+
+    x = np.arange(0, 4 * np.pi, 0.1)
+    y = np.sin(x)
+
+    # add a circle renderer with x and y coordinates, size, color, and alpha
+    p.line(x, y, line_color="navy")
+    p_json = json.dumps(json_item(p, "myplot"))
+
+    Bokeh.embed.embed_item(JSON.parse(p_json))
+</py-script>
+
+</body>
+</html>

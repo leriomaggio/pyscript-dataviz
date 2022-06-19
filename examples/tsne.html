@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>T-SNE Example</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - numpy
+        - pandas
+        - scipy
+        - scikit-learn
+        - matplotlib
+    </py-env>
+    <script type="text/javascript">
+        async function main() {
+            let pyodide = await loadPyodide();
+            console.log(pyodide.runPython("1 + 2"));
+        }
+
+        main();
+    </script>
+</head>
+
+<body>
+<py-script>
+    import sklearn
+    import scipy
+
+    print(scipy.__version__)
+    print(sklearn.__version__)
+</py-script>
+<div id="embedding" style="width: 100%; height: 100%"></div>
+<py-script output="embedding">
+    from sklearn.datasets import load_digits
+    import matplotlib.pyplot as plt
+    from sklearn.manifold import TSNE
+    from sklearn.decomposition import PCA
+    from matplotlib import pyplot as plt
+
+    digits = load_digits()
+    X = digits.data[:500]
+    y = digits.target[:500]
+
+    pca = PCA(n_components=2)
+    X_pca = pca.fit_transform(X)
+    reducer = TSNE(n_components=2, random_state=123456, learning_rate="auto",
+                   init=X_pca,
+                   method="exact")
+    embedding = reducer.fit_transform(X)
+    target_ids = range(len(digits.target_names))
+
+    fig, ax = plt.subplots()
+    colors = 'r', 'g', 'b', 'c', 'm', 'y', 'k', 'w', 'orange', 'purple'
+    for i, c, label in zip(target_ids, colors, digits.target_names):
+        ax.scatter(embedding[y == i, 0], embedding[y == i, 1], c=c, label=label)
+    plt.legend()
+    plt
+</py-script>
+
+</body>
+
+</html>

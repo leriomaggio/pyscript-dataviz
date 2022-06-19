@@ -1,0 +1,221 @@
+<html>
+<head>
+    <title>Bokeh Example</title>
+    <meta charset="iso-8859-1">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <script type="text/javascript"
+            src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js"></script>
+
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.1/dist/bundled/bootstraptemplate/bootstrap.css">
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.1/dist/bundled/defaulttheme/default.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <style>
+        #sidebar {
+            width: 400px;
+            padding: 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+</head>
+<body>
+<py-env>
+    - bokeh
+    - numpy
+    - pandas
+</py-env>
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header" style="background-color: #000000;">
+        <button type="button" class="navbar-toggle collapsed" id="sidebarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="app-header">
+            <a class="navbar-brand app-logo" href="/">
+                <img src="./logo.png" class="app-logo">
+            </a>
+            <a class="title" href="" style="color: #f0ab3c;">Bokeh Interactive Example</a>
+        </div>
+    </nav>
+
+    <div class="d-flex flex-nowrap" id="content">
+        <div class="sidenav" id="sidebar">
+           <div id="mycontrol"></div>
+        </div>
+        <div id="myplot"></div>
+    </div>
+</div>
+
+
+<py-script id="main">
+    import asyncio
+    import json
+    import pyodide
+    import pandas as pd
+
+    from js import Bokeh, console, JSON, document
+
+    from bokeh import __version__
+    from bokeh.document import Document
+    from bokeh.embed.util import OutputDocumentFor, standalone_docs_json_and_render_items
+
+    from bokeh.models import Select
+    from bokeh.palettes import Spectral5
+    from bokeh.plotting import figure
+    from bokeh.layouts import row, column
+    from bokeh.layouts import Row, Column
+
+    from bokeh.embed import json_item
+    from bokeh.plotting import figure
+    from bokeh.resources import CDN
+
+    from bokeh.protocol.messages.patch_doc import process_document_events
+    from bokeh.sampledata.autompg import autompg_clean as df
+
+    df = df.copy()
+
+    SIZES = list(range(6, 22, 3))
+    COLORS = Spectral5
+    N_SIZES = len(SIZES)
+    N_COLORS = len(COLORS)
+
+    # data cleanup
+    df.cyl = df.cyl.astype(str)
+    df.yr = df.yr.astype(str)
+    del df['name']
+
+    columns = sorted(df.columns)
+    discrete = [x for x in columns if df[x].dtype == object]
+    continuous = [x for x in columns if x not in discrete]
+
+
+    def create_figure():
+        xs = df[x.value].values
+        ys = df[y.value].values
+        x_title = x.value.title()
+        y_title = y.value.title()
+
+        kw = dict()
+        if x.value in discrete:
+            kw['x_range'] = sorted(set(xs))
+        if y.value in discrete:
+            kw['y_range'] = sorted(set(ys))
+        kw['title'] = "%s vs %s" % (x_title, y_title)
+
+        p = figure(height=600, width=800, tools='pan,box_zoom,hover,reset', **kw)
+        p.xaxis.axis_label = x_title
+        p.yaxis.axis_label = y_title
+
+        if x.value in discrete:
+            p.xaxis.major_label_orientation = pd.np.pi / 4
+
+        sz = 9
+        if size.value != 'None':
+            if len(set(df[size.value])) > N_SIZES:
+                groups = pd.qcut(df[size.value].values, N_SIZES, duplicates='drop')
+            else:
+                groups = pd.Categorical(df[size.value])
+            sz = [SIZES[xx] for xx in groups.codes]
+
+        c = "#31AADE"
+        if color.value != 'None':
+            if len(set(df[color.value])) > N_COLORS:
+                groups = pd.qcut(df[color.value].values, N_COLORS, duplicates='drop')
+            else:
+                groups = pd.Categorical(df[color.value])
+            c = [COLORS[xx] for xx in groups.codes]
+
+        p.circle(x=xs, y=ys, color=c, size=sz, line_color="white", alpha=0.6, hover_color='white', hover_alpha=0.5)
+        document.getElementById("myplot").innerHTML = ""
+        p_json = json.dumps(json_item(p, "myplot"))
+        return Bokeh.embed.embed_item(JSON.parse(p_json))
+
+
+    def update(attr, old, new):
+        layout.children[1] = create_figure()
+
+
+    x = Select(title='X-Axis', value='mpg', options=columns)
+    x.on_change('value', update)
+
+    y = Select(title='Y-Axis', value='hp', options=columns)
+    y.on_change('value', update)
+
+    size = Select(title='Size', value='None', options=['None'] + continuous)
+    size.on_change('value', update)
+
+    color = Select(title='Color', value='None', options=['None'] + continuous)
+    color.on_change('value', update)
+
+    controls = Column(x, y, color, size, width=200)
+    layout = Row(children=[controls])
+
+
+    def doc_json(model, target):
+        with OutputDocumentFor([model]) as doc:
+            doc.title = ""
+            docs_json, _ = standalone_docs_json_and_render_items(
+                [model], suppress_callback_warning=True
+            )
+
+        doc_json = list(docs_json.values())[0]
+        root_id = doc_json['roots']['root_ids'][0]
+
+        return doc, json.dumps(dict(
+            target_id=target,
+            root_id=root_id,
+            doc=doc_json,
+            version=__version__,
+        ))
+
+
+    def _link_docs(pydoc, jsdoc):
+        def jssync(event):
+            if getattr(event, 'setter_id', None) is not None:
+                return
+            events = [event]
+            json_patch = jsdoc.create_json_patch_string(pyodide.to_js(events))
+            pydoc.apply_json_patch(json.loads(json_patch))
+
+        jsdoc.on_change(pyodide.create_proxy(jssync), pyodide.to_js(False))
+
+        def pysync(event):
+            json_patch, buffers = process_document_events([event], use_buffers=True)
+            buffer_map = {}
+            for (ref, buffer) in buffers:
+                buffer_map[ref['id']] = buffer
+            jsdoc.apply_json_patch(JSON.parse(json_patch), pyodide.to_js(buffer_map), setter_id='js')
+
+        pydoc.on_change(pysync)
+
+
+    async def show(plot, target):
+        pydoc, model_json = doc_json(plot, target)
+        views = await Bokeh.embed.embed_item(JSON.parse(model_json))
+        jsdoc = views[0].model.document
+        _link_docs(pydoc, jsdoc)
+
+
+    await show(layout, 'mycontrol')
+</py-script>
+
+</body>
+</html>
