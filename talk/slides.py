@@ -355,26 +355,6 @@ class SlideShow(ExtensionTemplate):
         except TypeError:
             self.index = 1
 
-    #     self.map_show_source()
-    #
-    # def map_show_source(self):
-    #     show_src_btn = Element("slide-source-btn")
-    #     show_src_btn.element.onclick = self.show_source
-    #
-    # def show_source(self, evt):
-    #     console.log("show source")
-    #     el = Element("slide_source").element
-    #
-    #     try:
-    #         if el.style.visibility == "hidden":
-    #             el.style.visibility = "visible"
-    #             el.innerHTML = self.slides[self.index-1]
-    #         else:
-    #             el.style.visibility = "hidden"
-    #             el.innerHTML = ""
-    #     except IndexError:
-    #         console.log("OH NO", len(self.slides), self.index)
-
     def register_events(self):
         document.onkeydown = self.catch_arrow_event
 
