@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>Rethinking Data Visualisation using PyScript</title>
+
+    <link rel="stylesheet" href="./build/pyscript.css"/>
+    <script defer src="./build/pyscript.js"></script>
+    <link rel="stylesheet" href="./slides.css"/>
+    <py-env>
+        - matplotlib
+        - numpy
+        - paths:
+            - ./antigravity.py
+            - ./utils.py
+    </py-env>
+    <py-register-widget src="./slides.py" name="py-slideshow" klass="SlideShow"></py-register-widget>
+</head>
+
+<body id="the_body">
+    <py-slideshow id='pyconIT' src="./pydataldn.slides"></py-slideshow>
+
+</body>
+
+</html>
