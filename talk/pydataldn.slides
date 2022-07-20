@@ -606,6 +606,7 @@ fig1
 
 <div class="single-title bg_pink">
     <h1>(Data Viz) Demo Time</h1>
+    <a href="https://leriomaggio.github.io/pyscript-dataviz/examples/" title="PyScript Demos">Demos</a>
 </div>
 
 --- new ---
@@ -618,6 +619,6 @@ fig1
 <div class="bg_green">
     <h1>THANK YOU</h1>
     <p>
-        Thanks to Fabio Pliger, Philipp Rudiger, Guillame Lamaitre, all of you
+        Thanks to Fabio Pliger, Philipp Rudiger, Guillaume Lamaitre, all of you
     </p>
 </div>
