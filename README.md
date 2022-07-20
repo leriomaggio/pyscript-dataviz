@@ -26,3 +26,8 @@ can be designed and delivered for complex data science use cases.
 
 Slides of the talk are hosted on this repo, and made available via GitHub Page: [https://leriomaggio.github.io/pyscript-dataviz/talk/](https://leriomaggio.github.io/pyscript-dataviz/talk/)
 
+
+## Examples
+
+The collection of the examples are also hosted (and "deployed" 😉)
+on this repo, and available via GitHub Page: [https://leriomaggio.github.io/pyscript-dataviz/examples/](https://leriomaggio.github.io/pyscript-dataviz/examples/)
