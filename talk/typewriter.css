@@ -1,0 +1,201 @@
+.terminal {
+    box-shadow: 1px 1px 40px rgb(0 0 0 / 30%);
+    margin: 0 auto;
+    max-width: 40%;
+}
+
+.window-buttons {
+    background-color: #ff3b47;
+    border-radius: 50%;
+    border: 1px solid #c03d44;
+    display: inline-block;
+    height: 10px;
+    left: -30rem;
+    position: relative;
+    top: 6px;
+    width: 10px;
+}
+
+.minimize {
+    background-color: #ffc100;
+    border-color: #9d802c;
+    /*left: 11px;*/
+}
+
+.zoom {
+    background-color: #00d742;
+    border-color: #049931;
+    /*left: 16px;*/
+}
+
+.menu {
+    background-color: #1D1E22;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-sizing: border-box;
+    height: 25px;
+    margin: 0 auto;
+}
+
+.screen {
+    background-color: #1D1E22;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 2rem 1rem;
+}
+
+.pre {
+    -webkit-overflow-scrolling: touch;
+    background: #2D2E35;
+    border-radius: 10px;
+    color: #fff;
+    display: block;
+    font-family: 'Hack Regular', monospace;
+    font-size: .50rem;
+    line-height: 1.5;
+    max-width: 100%;
+    min-width: 100px;
+    overflow-x: scroll;
+    padding: 0.5rem;
+    white-space: nowrap;
+}
+
+#typewriter {
+    animation: hide 10s 1s;
+    font-family: 'Hack Regular', monospace;
+    height: 0;
+    line-height: 2.2;
+    opacity: 0;
+    position: relative;
+    /*left: -34%;*/
+}
+
+#typewriter:after{
+    content: "|";
+    animation: blink 500ms linear infinite alternate;
+}
+
+.terminal p {
+    font-family: 'Hack Regular', monospace;
+    font-size: 1.2em !important;
+    /*left: 10%;*/
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    width: 0;
+}
+
+.terminal span {
+    color: #fff;
+    font-weight: bold;
+}
+
+.line1 {
+    animation: type .5s 8s steps(80, end) forwards;
+    color: #9CD9F0;
+    /* animation-direction: reverse; */
+}
+
+.cursor1 {
+    animation: blink 1s 8s 2 forwards;
+}
+
+.line2 {
+    animation: type .5s 10.25s steps(20, end) forwards;
+    color: #888;
+}
+
+.cursor2 {
+    animation: blink 1s 10.1s 2 forwards;
+}
+
+.line3 {
+    animation: type .5s 12.2s steps(20, end) forwards;
+    color: #FFAE57;
+}
+
+.cursor3 {
+    animation: blink 1s 13s 2 forwards;
+}
+
+.line4 {
+    animation: type .5s 14.85s steps(20, end) forwards;
+    color: #9CD9F0;
+}
+
+.cursor4 {
+    animation: blink 1s 15.5s 2 forwards;
+}
+
+.line5 {
+    animation: type .5s 17.75s steps(20, end) forwards;
+    color: #fff;
+}
+
+.cursor5 {
+    animation: blink 1s 8.5s infinite;
+}
+
+/* ----------------------------------
+ Animations
+-----------------------------------*/
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes hide {
+    0% {
+        /* display: none;
+        height: auto; */
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes type {
+    to {
+        width: 40rem;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        background-position: center 200%;
+    }
+    to {
+        background-position: center bottom;
+    }
+}
