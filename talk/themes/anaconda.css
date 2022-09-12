@@ -1,0 +1,330 @@
+/* Slides Tweaks */
+
+/*Nunito font*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+:root {
+    --conda-main: #43B049;
+    --conda-main-2: #80BC00;
+    --conda-main-3: #00A19B;
+    --conda-main-4: #005E87;
+    --conda-main-5: #06262D;
+    --conda-second-1: #0E172B;
+    --conda-second-2: #00A5B5;
+    --conda-second-3: #DCF0EF;
+    --conda-second-4: #1A5632;
+    --conda-second-5: #F6E948;
+    --pyscript: #FDA703;
+
+    --conda-bg-1: #0E172B;
+    --conda-bg-2: #DCF0EF;
+    --conda-bg-3: #00A19B;
+
+    --conda-individual-ed: #43B049;
+    --conda-services: #80BC00;
+    --conda-team-ed: #00A19B;
+    --conda-enterprise-ed: #005E87;
+
+}
+
+blockquote {
+    font-style: italic;
+}
+
+.slider pre code {
+    text-align: left !important;
+    font-size: 1.5em;
+}
+
+.slider p code {
+    text-align: left !important;
+    font-size: 1em;
+}
+
+.CSSgal {
+    color: #000;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300 !important;
+    font-size: 16px;
+    max-height: 90%;
+    height: 90%;
+}
+
+/*Navigation*/
+.CSSgal .prevNext a {
+	background: #000;
+}
+
+
+/* Text in REPLs should always align left */
+.CSSgal div.cm-line {
+    text-align: left;
+    color: black;
+}
+
+.CSSgal div.cm-scroller {
+    background-color: white;
+}
+
+.CSSgal .slider h1 {
+    font-size: 4.5em;
+}
+
+.CSSgal .slider h2 {
+    margin-top: 40vh;
+    letter-spacing: -0.06em;
+    word-spacing: 0.2em;
+    font-size: 4em;
+    padding: 2.5rem;
+}
+
+.CSSgal .slider h3 {
+    font-size: 3.5em;
+}
+
+.CSSgal .slider h4 {
+    font-size: 3.2em;
+}
+
+.CSSgal a {
+    border-radius: 50%;
+    margin: 0 3px;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+/* Slides  */
+
+.slider div.centred {
+    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.slider div p {
+    text-align: left;
+    margin-left: 10rem;
+    margin-bottom: 1em;
+    margin-right: 10rem;
+    font-size: 2em;
+}
+
+.slider div ul,
+.slider div ol {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.slider div ul li,
+.slider div ol li {
+    margin-top: 1rem;
+}
+
+.slider div ul {
+    list-style: disc;
+}
+
+.slider div ol {
+    list-style: decimal;
+}
+
+.slider div ol li::marker {
+    content: counter(list-item)"\a0\a0";
+    font-weight: 600;
+    color: #00833e;
+}
+
+.slider div ol li::before {
+    content: " | ";
+    font-weight: 600;
+    color: #00833e;
+}
+
+.slider div ul il ul {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 1.8em;
+    margin-bottom: 50px;
+}
+
+.slide-source-btn a {
+    border-radius: 50%;
+    margin: 0 3px;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+footer {
+    margin: 5rem 5rem 5rem 5rem;
+}
+
+
+
+/* CUSTOM Classes */
+.pyscript {
+    color: var(--pyscript);
+    font-style: normal;
+    font-weight: 600;  /*semibold*/
+}
+
+.presenter {
+    border-radius: 50%;
+    border-color: #43B049;
+    border-width: 5px;
+    display: inline-block;
+    padding: 0 !important;
+}
+
+
+.header {
+    display: block;
+    margin: 15rem 15rem 0 15rem;
+    padding: 5rem 5rem;
+    max-width: 30%;
+}
+
+.with-presenter {
+   max-width: 50% !important;
+}
+
+.presenter-title {
+    margin-left: 15rem;
+    text-align: left;
+}
+
+h2.presenter-title {
+    font-size: 3.3em !important;
+    padding: 10px 0 !important;
+    margin-top: 0 !important;
+}
+
+h3.presenter-title {
+    font-size: 2.8em !important;
+    padding: 8px 0;
+}
+
+h4.presenter-title {
+    font-size: 2.5em !important;
+    padding: 8px 0;
+}
+
+.slide {
+    margin: 15rem 0 0 0;
+}
+
+.slide div {
+    margin: 10px 0;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.title-only h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 40%;
+    text-align: center;
+}
+
+.title-only h1.centred {
+    font-size: 3.5em;
+    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.title-only img {
+    margin: auto;
+    height: 30%;
+    /*margin-top: 20px;*/
+}
+
+.title-only-meme img {
+    height: 70%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.title-only-meme h1 {
+    height: 100%;
+    margin-top: 20px;
+    margin-left: 0 !important;
+    text-align: center !important;
+    font-weight: 500;
+    color: var(--conda-main);
+}
+
+.slide-bg {
+    background-position: right -236px center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto !important;
+}
+
+.agenda {
+    background-image: url("themes/imgs/logo-bg.png") !important;
+}
+
+.network {
+    background-image: url("themes/imgs/logo-bg-2.png") !important;
+}
+
+.slide-toc {
+    height: 100%;
+}
+
+.slide-toc div h2 {
+    font-size: 5em !important;
+    margin-top: 0 !important;
+}
+
+.slide-toc div ul li,
+.slide-toc div ol li {
+    margin-top: 2rem;
+}
+
+.slide-toc > div {
+    padding-top: 15rem;
+}
+
+.toc {
+    background-color: var(--conda-bg-2);
+}
+
+.heading-bg {
+    background-repeat: no-repeat !important;
+    background-position: center 100px !important;
+    background-size: unset !important;
+}
+
+.heading-bg-1 {
+    background-color: var(--conda-main) !important;
+    background-image: url("themes/imgs/logo-heading-white.png") !important;
+}
+
+.heading-bg-2 {
+    background-color: var(--conda-bg-2) !important;
+    background-image: url("themes/imgs/logo-heading-green.png") !important;
+}
+
+.heading h1 {
+    font-size: 4.8em !important;
+    margin-top: 5rem;
+    padding-top: 15rem;
+}
+
+.centered {
+    padding-top: 10rem;
+}
+
+.centered h1 {
+    padding: 5rem 0;
+}
+
+.footer-logo {
+    max-width: 25%;
+}
