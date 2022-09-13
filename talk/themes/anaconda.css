@@ -31,6 +31,23 @@ blockquote {
     font-style: italic;
 }
 
+blockquote p {
+    margin-bottom: 1rem !important;
+    margin-left: 20rem !important;
+}
+
+h1, h2, h3 {
+    color: var(--conda-second-1)
+}
+
+h4, h5, h6 {
+    color: var(--conda-second-4);
+}
+
+code {
+    color: var(--conda-second-2);
+}
+
 .slider pre code {
     text-align: left !important;
     font-size: 1.5em;
@@ -47,8 +64,8 @@ blockquote {
     font-family: 'Nunito', sans-serif;
     font-weight: 300 !important;
     font-size: 16px;
-    max-height: 90%;
-    height: 90%;
+    max-height: 100%;
+    height: 100%;
 }
 
 /*Navigation*/
@@ -159,9 +176,8 @@ blockquote {
 }
 
 footer {
-    margin: 5rem 5rem 5rem 5rem;
+    padding: 1em;
 }
-
 
 
 /* CUSTOM Classes */
@@ -327,4 +343,53 @@ h4.presenter-title {
 
 .footer-logo {
     max-width: 25%;
+}
+
+.screen p, .screen pre {
+    margin-left: 5rem !important;
+}
+
+[id^="py-"][id$="container"], div[id^="py-"]{
+    max-width: 80%;
+    margin-left: 20rem;
+}
+
+/* RESPONSIVE */
+@media (min-width: 911px) and (max-width: 1580px) {
+    .with-presenter {
+        max-width: 90% !important;
+    }
+
+    .header {
+        margin: 10rem 0 0 6rem;
+        max-width: 45%;
+    }
+
+    h2.presenter-title {
+        font-size: 2.6em !important;
+    }
+
+    h3.presenter-title {
+        font-size: 2.4em !important;
+    }
+
+    h4.presenter-title {
+        font-size: 2.2em !important;
+    }
+    .presenter-title {
+        margin-left: 6rem;
+    }
+
+    .title-only-meme img, img {
+        max-width: 75%;
+        height: auto !important;
+    }
+
+    .terminal {
+        max-width: 85% !important;
+    }
+
+    .menu {
+        padding-left: 10rem;
+    }
 }
