@@ -64,10 +64,12 @@ function setupTypewriter(t) {
 
 function typewriter_fn() {
     let typer = document.getElementById('typewriter');
-    typewriter = setupTypewriter(typewriter);
+    typewriter = setupTypewriter(typer);
     typewriter.type();
 }
 
 $(document).ready(function() {
-    $('a[href="#s8"]').click(typewriter_fn);
+    $('a[href="#s8"]').click(function(){
+        typewriter_fn();
+    });
 });
