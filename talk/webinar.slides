@@ -1,17 +1,82 @@
 <div>
     <div class="row justify-content-start">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <img src="themes/imgs/header.png" class="header with-presenter"/>
             <h2 class="presenter-title">Rethinking Data Visualisation with
                 <em style="color: #FDA703; font-style: normal; font-weight: bold;">&lt;PyScript&gt;</em>
             </h2>
             <h3 class="presenter-title">Valerio Maggio</h3>
             <h4 class="presenter-title">Developer Advocate at Anaconda, inc.</h4>
+            <br/>
+            <h6 class="presenter-title">
+                <i class="fa fa-envelope"></i>
+                <code class="contacts">vmaggio@anaconda.com</code>
+            </h6>
+            <br/>
+            <h6 class="presenter-title">
+                <i class="fa fa-twitter"></i>
+                <code class="contacts">@leriomaggio</code>
+            </h6>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <img src="themes/imgs/me.png" class="header presenter"/>
         </div>
     </div>
+</div>
+
+--- slide ---
+
+<div>
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Who I am</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-6">
+            <img src="themes/imgs/me.png" class="presenter with-presenter"/>
+        </div>
+        <div class="col-md-6">
+            <py-md>
+                * Data Scientist and Researcher
+                    - Background in Computer Science
+                    - Ph.D. in Machine Learning
+                * Developer Advocate in Anaconda
+                * Fellow at [Software Sustainability Institute](https://www.software.ac.uk/)
+                * _Python_, _Community_, and _Open Source_
+                    - `PyData`, `EuroScipy`, `PyCon Italia`
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+
+<div class="centered">
+    <link rel="stylesheet" href="typewriter.css" />
+    <h3 class="title"> Wouldn't it be cool to run Python...in the Browser ?...</h3>
+    <h3>Introducing <em class="pyscript">&lt;PyScript&gt;</em></h3>
+
+    <!-- begin terminal window -->
+    <div class="terminal">
+        <div class="menu">
+            <div class="window-buttons close"></div>
+            <div class="window-buttons minimize"></div>
+            <div class="window-buttons zoom"></div>
+        </div>
+        <div class="screen">
+            <div class="code">
+                <p class="line1">&lt;html&gt;<span class="cursor1">|</span></p>
+                <p class="line2">&nbsp;&nbsp;&nbsp;&nbsp;...<span class="cursor2">|</span></p>
+                <p class="line3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;py-script&gt;<span style="color: #aaa;"> <span style="color:#FFD580;">print</span>(<span style="color:#BAE67E;">'Now you can!'</span>) </span>&lt;/py-script&gt;<span class="cursor3">|</span></p>
+                <p class="line4">&lt;/html&gt;<span class="cursor4">|</span></p>
+
+                <p class="line5"><span class="cursor5">|</span></p>
+
+            </div>
+        </div>
+    </div>
+    <!-- end terminal window -->
 </div>
 
 --- slide ---
@@ -23,9 +88,14 @@
         </div>
         <div class="col-md-6 toc">
             <py-md>
-                1.  What `[is|isNot]` PyScript
-                2.  PyScript from a Data Science Perspective
-                3.  Demo time
+                1.  Introduce PyScript
+                    -  What `[is|isNot]` PyScript
+                    -  Why PyScript
+                        (and `&lt;py-script&gt;`)
+                2.  PyScript for Data Science
+                    - Main features & potentials
+                3.  PyScript for Data Visualisation
+                    - Examples and Demo
             </py-md>
         </div>
     </div>
@@ -37,6 +107,11 @@
     <div class="row justify-content-start">
         <div class="col-md-12">
             <h2>Disclaimer</h2>
+            <span class="text-center f30">from
+                <a href="https://pyscript.net" title="PyScript.net">
+                    <em class="pyscript">pyscript.net</em>
+                </a>
+            </span>
             <py-md>
                 > Please be advised that PyScript is very alpha and under heavy development.
 
@@ -52,22 +127,22 @@
 
 --- slide ---
 
-<div class="title-only-meme">
+<div class="meme-title">
     <img src="https://media.makeameme.org/created/work-in-progress-qzqa00.jpg" alt="WIP"/>
-    <h1>Under Development</h1>
+    <h1>Expect things to change</h1>
 </div>
 
 --- slide ---
 
-<div class="title-only-meme">
+<div class="meme-title">
     <img src="https://images.cdn.circlesix.co/image/1/700/0/uploads/posts/2016/04/31bddd8961bbb98af97c166d8ad5e604.jpg"
          alt="WIP"/>
-    <h1 style="font-style: italic;">That's me while working on these slides</h1>
 </div>
+
 
 --- slide ---
 
-<div class="title-only-meme">
+<div class="meme-title">
     <img src="https://c.tenor.com/bsjJw92LPHYAAAAC/tony-stark-screaming.gif"
          alt="Screaming Tony Stark"/>
     <h1>Be Ready</h1>
@@ -75,15 +150,60 @@
 
 --- slide ---
 
-<div class="heading heading-bg heading-bg-2">
+<div class="centered heading heading-bg heading-bg-2">
     <h1>What is <em class="pyscript">&lt;PyScript&gt;</em></h1>
+</div>
+
+--- slide ---
+
+<div class="anim" id="anim1">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">What is <em class="pyscript">&lt;PyScript&gt;</em></h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <span class="f30 text-center italic">It's a lot of things...</span>
+            <py-md>
+                * Python in the browser
+                    - Python _ecosystem_ in the browser
+                * Python **with** Javascript
+                * Environment Management
+                * Flexible framework:
+                    - create pluggable and extensible components;
+                    - UI components readily available (i.e. buttons, containers, REPL)
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+
+<div class="anim" id="anim2">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">What is <em class="pyscript">&lt;PyScript&gt;</em></h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <span class="f30 text-center italic">In essence...</span>
+            <py-md>
+                * PyScript is <u>just HTML</u>...
+                - ..only a bit (ok maybe a lot) more powerful...
+                - bring the whole Python ecosystem directly in the browser!
+                * **Mission**: _Bring Programming for the 99%_
+            </py-md>
+        </div>
+    </div>
 </div>
 
 --- slide ---
 
 <div class="centered">
     <link rel="stylesheet" href="typewriter.css" />
-    <h1 class="pyscript">&lt;PyScript&gt;</h1>
+    <h2 class="pyscript">&lt;PyScript&gt;</h2>
 
     <!-- begin terminal window -->
     <div class="terminal">
@@ -110,7 +230,7 @@
     </div>
     <!-- end terminal window -->
 
-    <script defer type="text/javascript" src="typewriter.js">
+
 
     </script>
 </div>
@@ -252,7 +372,7 @@
 
 --- slide ---
 
-<div class="heading-bg heading-bg-1">
+<div class="centered heading-bg heading-bg-1">
     <h1>Well.... why not?</h1>
 </div>
 
@@ -368,7 +488,7 @@ fig1
 </div>
 
 --- slide ---
-<div class="centered">
+<div class="centered slide-bg agenda">
     <h1>THANK YOU</h1>
     <p>
         Thanks to Fabio Pliger, Philipp Rudiger, Guillaume Lamaitre, all of you

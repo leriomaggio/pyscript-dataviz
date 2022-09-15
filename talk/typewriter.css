@@ -1,7 +1,8 @@
 .terminal {
     box-shadow: 1px 1px 40px rgb(0 0 0 / 30%);
-    margin: 0 auto;
-    max-width: 42%;
+    margin: 5rem auto;
+    max-width: 50%;
+
 }
 
 .window-buttons {

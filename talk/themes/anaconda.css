@@ -46,14 +46,22 @@ h1, h2, h3 {
     color: var(--conda-second-1)
 }
 
-h4, h5, h6 {
+h4, h5 {
     color: var(--conda-second-4);
+}
+
+h6 {
+    color: var(--conda-second-2);
 }
 
 code {
     color: var(--conda-second-4);
     font-weight: 300;
     font-family: var(--mono-font) !important;
+}
+
+code.contacts {
+    color: var(--conda-second-2);
 }
 
 .slider pre code {
@@ -73,14 +81,14 @@ code {
     text-align: center;
     font-family: 'Nunito', sans-serif;
     font-weight: 300 !important;
-    font-size: 16px;
+    font-size: 18px;
     max-height: 100%;
-    height: 100%;
+    height: 94%;
 }
 
 /*Navigation*/
 .CSSgal .prevNext a {
-	background: #000;
+    background: #000;
 }
 
 
@@ -129,7 +137,7 @@ code {
     text-align: center;
 }
 
-.slider div p {
+.slider p {
     text-align: left;
     margin-left: 10rem;
     margin-bottom: 1em;
@@ -137,44 +145,56 @@ code {
     font-size: 2em;
 }
 
-.slider div ul,
-.slider div ol {
+.slider ul,
+.slider ol {
     text-align: left;
     margin-left: 10%;
-    font-size: 2rem;
+    font-size: 2.3rem;
     margin-bottom: 50px;
 }
 
-.slider div ul li,
-.slider div ol li {
-    margin-top: 1rem;
+.slider ul li,
+.slider ol li {
+    margin-top: 1.5rem;
+}
+
+.slider ul li em,
+.slider ol li em {
+    color: var(--pyscript);
 }
 
 .slider div ul {
     list-style: disc;
 }
 
-.slider div ol {
+.slider ol {
     list-style: decimal;
 }
 
-.slider div ol li::marker {
-    content: counter(list-item)"\a0\a0";
+.slider ol li::marker {
+    content: counter(list-item) "\a0\a0";
     font-weight: 600;
     color: #00833e;
 }
 
-.slider div ol li::before {
+.slider ol li::before {
     content: " | ";
     font-weight: 600;
     color: #00833e;
 }
 
-.slider div ul il ul {
+.slider ol li ul li::marker {
+    content: "↪"
+}
+
+.slider ol li ul li::before {
+    content: " ";
+}
+
+.slider ul li ul {
     text-align: left;
-    margin-left: 20%;
-    font-size: 1.8rem;
-    margin-bottom: 50px;
+    margin-left: 5%;
+    margin-bottom: 2rem;
 }
 
 .slide-source-btn a {
@@ -193,7 +213,7 @@ footer {
 .pyscript {
     color: var(--pyscript);
     font-style: normal;
-    font-weight: 600;  /*semibold*/
+    font-weight: 600; /*semibold*/
 }
 
 .presenter {
@@ -207,13 +227,13 @@ footer {
 
 .header {
     display: block;
-    margin: 15rem 15rem 0 15rem;
+    margin: 15rem 15rem 0 5rem;
     padding: 5rem 5rem;
-    max-width: 30%;
+    max-width: 50%;
 }
 
 .with-presenter {
-   max-width: 50% !important;
+    max-width: 70% !important;
 }
 
 .presenter-title {
@@ -237,8 +257,21 @@ h4.presenter-title {
     padding: 8px 0;
 }
 
+h5.presenter-title {
+    font-size: 2em !important;
+}
+
+h6.presenter-title {
+    font-size: 1.2em !important;
+}
+
 .slide {
     margin-top: 15rem !important;
+}
+
+.title {
+    padding-top: 15rem;
+    padding-bottom: 5rem;
 }
 
 .slide div {
@@ -269,13 +302,17 @@ h4.presenter-title {
     /*margin-top: 20px;*/
 }
 
-.title-only-meme img {
-    height: 70%;
-    margin: auto;
-    margin-top: 5%;
+.meme-title {
+    width: auto;
+    height: 100%;
 }
 
-.title-only-meme h1 {
+.meme-title img {
+    height: 65%;
+    margin: 5% auto;
+}
+
+.meme-title h1 {
     height: 100%;
     margin-top: 20px;
     margin-left: 0 !important;
@@ -305,13 +342,13 @@ h4.presenter-title {
     margin-left: 0 !important;
 }
 
-.slide-toc div h2, .slide-toc div h1 {
+.slide-toc h2, .slide-toc h1 {
     font-size: 6rem !important;
     margin-top: 0 !important;
 }
 
-.slide-toc div ul li,
-.slide-toc div ol li {
+.slide-toc ul li,
+.slide-toc ol li {
     margin-top: 2rem;
 }
 
@@ -323,9 +360,13 @@ h4.presenter-title {
     font-size: 3rem !important;
 }
 
+.slide-toc ul li ul, .slide-toc ol li ol,
+.slide-toc ul li ol, .slide-toc ol li ul {
+    font-size: 2.5rem !important;
+}
+
 .slide-toc [id^="py-"][id$="container"], .slide-toc div[id^="py-"],
-.col-md-6 [id^="py-"][id$="container"], .col-md-6 div[id^="py-"]
-{
+.col-md-6 [id^="py-"][id$="container"], .col-md-6 div[id^="py-"] {
     margin-left: 0 !important;
 }
 
@@ -376,13 +417,60 @@ h4.presenter-title {
     margin-left: 5rem !important;
 }
 
-[id^="py-"][id$="container"], div[id^="py-"]{
+[id^="py-"][id$="container"], div[id^="py-"] {
     max-width: 85%;
-    margin-left: 20rem;
+    margin-left: 0;
 }
 
 .row {
     margin: 0 !important;
+}
+
+.f30 {
+    font-size: 30px;
+}
+
+.f35 {
+    font-size: 35px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* Slide Animation */
+.slide-fade li {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+}
+
+.slide-fade li.show {
+    opacity: 1;
+}
+
+.fade-item {
+    transition: 2s all ease-in-out;
+    opacity: 0;
+}
+
+.fadein {
+    animation: fadeIn 0.9s 1;
+    animation-fill-mode: forwards;
+}
+
+.fadeout {
+    animation: fadeIn 0.9s 1;
+    animation-fill-mode: backwards;
+    animation-direction: reverse;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* RESPONSIVE */
@@ -392,7 +480,7 @@ h4.presenter-title {
     }
 
     .header {
-        margin: 10rem 0 0 6rem;
+        margin: 18rem 0 0 6rem;
         max-width: 45%;
     }
 
@@ -407,11 +495,12 @@ h4.presenter-title {
     h4.presenter-title {
         font-size: 2.2em !important;
     }
+
     .presenter-title {
         margin-left: 6rem;
     }
 
-    .title-only-meme img, img {
+    .meme-title img, img {
         max-width: 75%;
         height: auto !important;
     }

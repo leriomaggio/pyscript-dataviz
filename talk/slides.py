@@ -219,9 +219,9 @@ class SlideShow(ExtensionTemplate):
         window.addEventListener("hashchange", create_proxy(self.compute_index))
 
     def catch_arrow_event(self, evt, *args, **kws):
-        if evt.keyCode in {"33", 33}:
+        if evt.keyCode in {"33", 33, "37", 37}:
             self.previous()
-        if evt.keyCode in {"34", 34}:
+        if evt.keyCode in {"34", 34, "39", 39}:
             self.next()
 
     def catch_event(self, evt, *args, **kws):
@@ -247,8 +247,6 @@ class SlideShow(ExtensionTemplate):
 
     def move_slide(self):
         url = self.base % self.index
-        #FIXME: Debug to remove
-        # console.log(url)
         document.location.href = url
 
     def connect(self):
@@ -306,11 +304,12 @@ class SlideShow(ExtensionTemplate):
                 next = 1
             else:
                 next = i + 2
-            cleaned_content.append(content)
+            cleaned_content.append(f'<div id="slide{cur_slide}">{content}</div>')
 
             # console.log(content)
             slides_navi.append(
-                f'<div><a href="#s{prev}"></a><a href="#s{next}"></a></div>'
+                f'<div><a href="#s{prev}" class="prev"></a>'
+                f'<a href="#s{next}" class="next"></a></div>'
             )
 
         for k, v in extra_css.items():
