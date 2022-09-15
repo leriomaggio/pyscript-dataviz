@@ -1,7 +1,7 @@
 /* Slides Tweaks */
 
-/*Nunito font*/
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+/*Nunito & Fira Code fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 :root {
     --conda-main: #43B049;
@@ -25,6 +25,12 @@
     --conda-team-ed: #00A19B;
     --conda-enterprise-ed: #005E87;
 
+    --mono-font: 'Fira Code', monospace;
+}
+
+a {
+    color: var(--conda-main-4);
+    font-weight: 500;
 }
 
 blockquote {
@@ -45,17 +51,21 @@ h4, h5, h6 {
 }
 
 code {
-    color: var(--conda-second-2);
+    color: var(--conda-second-4);
+    font-weight: 300;
+    font-family: var(--mono-font) !important;
 }
 
 .slider pre code {
     text-align: left !important;
     font-size: 1.5em;
+    font-family: var(--mono-font) !important;
 }
 
 .slider p code {
     text-align: left !important;
     font-size: 1em;
+    font-family: var(--mono-font) !important;
 }
 
 .CSSgal {
@@ -107,7 +117,6 @@ code {
 .CSSgal a {
     border-radius: 50%;
     margin: 0 3px;
-    color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
 }
 
@@ -131,8 +140,8 @@ code {
 .slider div ul,
 .slider div ol {
     text-align: left;
-    margin-left: 20%;
-    font-size: 2em;
+    margin-left: 10%;
+    font-size: 2rem;
     margin-bottom: 50px;
 }
 
@@ -164,7 +173,7 @@ code {
 .slider div ul il ul {
     text-align: left;
     margin-left: 20%;
-    font-size: 1.8em;
+    font-size: 1.8rem;
     margin-bottom: 50px;
 }
 
@@ -208,7 +217,7 @@ footer {
 }
 
 .presenter-title {
-    margin-left: 15rem;
+    margin-left: 10rem;
     text-align: left;
 }
 
@@ -229,7 +238,7 @@ h4.presenter-title {
 }
 
 .slide {
-    margin: 15rem 0 0 0;
+    margin-top: 15rem !important;
 }
 
 .slide div {
@@ -291,10 +300,13 @@ h4.presenter-title {
 
 .slide-toc {
     height: 100%;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
 }
 
-.slide-toc div h2 {
-    font-size: 5em !important;
+.slide-toc div h2, .slide-toc div h1 {
+    font-size: 6rem !important;
     margin-top: 0 !important;
 }
 
@@ -305,6 +317,16 @@ h4.presenter-title {
 
 .slide-toc > div {
     padding-top: 15rem;
+}
+
+.slide-toc ul, .slide-toc ol {
+    font-size: 3rem !important;
+}
+
+.slide-toc [id^="py-"][id$="container"], .slide-toc div[id^="py-"],
+.col-md-6 [id^="py-"][id$="container"], .col-md-6 div[id^="py-"]
+{
+    margin-left: 0 !important;
 }
 
 .toc {
@@ -338,7 +360,12 @@ h4.presenter-title {
 }
 
 .centered h1 {
-    padding: 5rem 0;
+    padding: 25rem 0;
+}
+
+.centered h2 {
+    padding: 2rem 0 !important;
+    margin-top: 10rem !important;
 }
 
 .footer-logo {
@@ -350,8 +377,12 @@ h4.presenter-title {
 }
 
 [id^="py-"][id$="container"], div[id^="py-"]{
-    max-width: 80%;
+    max-width: 85%;
     margin-left: 20rem;
+}
+
+.row {
+    margin: 0 !important;
 }
 
 /* RESPONSIVE */
