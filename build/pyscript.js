@@ -27368,7 +27368,7 @@ var app = (function () {
         headerIds: true,
         headerPrefix: '',
         highlight: null,
-        langPrefix: 'language-',
+        langPrefix: 'hljs language-',
         mangle: true,
         pedantic: false,
         renderer: null,
