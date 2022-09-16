@@ -39,7 +39,10 @@ blockquote {
 
 blockquote p {
     margin-bottom: 1rem !important;
-    margin-left: 20rem !important;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    padding: 1rem 2rem;
+    background-color: rgba(220,240,239, 0.4);
 }
 
 h1, h2, h3 {
@@ -468,9 +471,19 @@ div[id^="py-"] p {
 }
 
 .body {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-    margin-left: 15rem;
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+    margin-left: 15rem !important;
+}
+
+.body div[id^="py-"] pre {
+    margin-left: 0 !important;
+}
+
+.cm-line {
+    font-family: var(--mono-font);
+    font-size: 1.3rem !important;
+    font-weight: 400 !important;
 }
 
 /* Slide Animation */
