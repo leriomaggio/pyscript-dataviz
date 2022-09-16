@@ -1,10 +1,10 @@
 function setup_list(el) {
-    $(el).find("li").each(function (name, item) {
+    $(el).find("li, pre").each(function (name, item) {
         $(item).addClass("fade-item");
     });
-    let $lif = $(el).find("li").first();
+    let $lif = $(el).find("li, pre").first();
     $lif.addClass("fadein");
-    $lif.find("li").addClass("fadein");
+    $lif.find("li, pre").addClass("fadein");
 }
 
 $(document).ready(function () {
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
                 $li.removeClass("fadeout");
                 $li.addClass("fadein");
-                $li.find("li").each(function(value, item){
+                $li.find("li, pre").each(function(value, item){
                     $(item).removeClass("fadeout");
                     $(item).addClass("fadein");
                 });
@@ -58,6 +58,5 @@ $(document).ready(function () {
     });
 
     setTimeout(setup_all_lists, 5000);
-
 
 });

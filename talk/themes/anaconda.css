@@ -160,7 +160,13 @@ code.contacts {
 
 .slider ul li em,
 .slider ol li em {
-    color: var(--pyscript);
+    color: var(--conda-main);
+    font-style: normal;
+}
+
+.slider ul li img,
+.slider ol li img {
+    max-width: 25%;
 }
 
 .slider div ul {
@@ -270,7 +276,7 @@ h6.presenter-title {
 }
 
 .title {
-    padding-top: 15rem;
+    padding-top: 10rem;
     padding-bottom: 5rem;
 }
 
@@ -390,6 +396,11 @@ h6.presenter-title {
     background-image: url("themes/imgs/logo-heading-green.png") !important;
 }
 
+.heading-bg-3 {
+    background-color: var(--conda-bg-3) !important;
+    background-image: url("themes/imgs/logo-heading-white.png") !important;
+}
+
 .heading h1 {
     font-size: 4.8em !important;
     margin-top: 5rem;
@@ -422,12 +433,30 @@ h6.presenter-title {
     margin-left: 0;
 }
 
+div[id^="py-"] pre {
+    margin-left: 20rem;
+    border-radius: 5px;
+    /*margin-bottom: 1rem;*/
+}
+
+div[id^="py-"] p {
+    margin-bottom: 0 !important;
+}
+
 .row {
     margin: 0 !important;
 }
 
+.f25 {
+    font-size: 25px;
+}
+
 .f30 {
     font-size: 30px;
+}
+
+.f32 {
+    font-size: 32px;
 }
 
 .f35 {
@@ -436,6 +465,12 @@ h6.presenter-title {
 
 .italic {
     font-style: italic;
+}
+
+.body {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    margin-left: 15rem;
 }
 
 /* Slide Animation */

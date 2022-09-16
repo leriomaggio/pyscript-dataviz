@@ -1,32 +1,31 @@
-<div>
-    <div class="row justify-content-start">
-        <div class="col-md-7">
-            <img src="themes/imgs/header.png" class="header with-presenter"/>
-            <h2 class="presenter-title">Rethinking Data Visualisation with
-                <em style="color: #FDA703; font-style: normal; font-weight: bold;">&lt;PyScript&gt;</em>
-            </h2>
-            <h3 class="presenter-title">Valerio Maggio</h3>
-            <h4 class="presenter-title">Developer Advocate at Anaconda, inc.</h4>
-            <br/>
-            <h6 class="presenter-title">
-                <i class="fa fa-envelope"></i>
-                <code class="contacts">vmaggio@anaconda.com</code>
-            </h6>
-            <br/>
-            <h6 class="presenter-title">
-                <i class="fa fa-twitter"></i>
-                <code class="contacts">@leriomaggio</code>
-            </h6>
-        </div>
-        <div class="col-md-5">
-            <img src="themes/imgs/me.png" class="header presenter"/>
-        </div>
+<!--Title-->
+<div class="row justify-content-start">
+    <div class="col-md-7">
+        <img src="themes/imgs/header.png" class="header with-presenter"/>
+        <h2 class="presenter-title">Rethinking Data Visualisation with
+            <em style="color: #FDA703; font-style: normal; font-weight: bold;">&lt;PyScript&gt;</em>
+        </h2>
+        <h3 class="presenter-title">Valerio Maggio</h3>
+        <h4 class="presenter-title">Developer Advocate at Anaconda, Inc.</h4>
+        <br/>
+        <h6 class="presenter-title">
+            <i class="fa fa-envelope"></i>
+            <code class="contacts">vmaggio@anaconda.com</code>
+        </h6>
+        <br/>
+        <h6 class="presenter-title">
+            <i class="fa fa-twitter"></i>
+            <code class="contacts">@leriomaggio</code>
+        </h6>
+    </div>
+    <div class="col-md-5">
+        <img src="themes/imgs/me.png" class="header presenter"/>
     </div>
 </div>
 
 --- slide ---
-
-<div>
+<!--Who I am-->
+<div class="anim">
     <div class="row justify-content-start">
         <div class="col-sm-12">
             <h1 class="title">Who I am</h1>
@@ -43,15 +42,21 @@
                     - Ph.D. in Machine Learning
                 * Developer Advocate in Anaconda
                 * Fellow at [Software Sustainability Institute](https://www.software.ac.uk/)
-                * _Python_, _Community_, and _Open Source_
-                    - `PyData`, `EuroScipy`, `PyCon Italia`
+                * _Python_ `&` _Community_ `&` _Open Source_
+                    - PyData, EuroScipy, PyCon Italia
             </py-md>
+                <ul>
+                    <li>
+                        <i class="fa fa-twitter"></i> | <i class="fa fa-github"></i>
+                        <code class="contacts">@leriomaggio</code>
+                    </li>
+                </ul>
         </div>
     </div>
 </div>
 
 --- slide ---
-
+<!--PyScript Terminal Animation-->
 <div class="centered">
     <link rel="stylesheet" href="typewriter.css" />
     <h3 class="title"> Wouldn't it be cool to run Python...in the Browser ?...</h3>
@@ -80,68 +85,63 @@
 </div>
 
 --- slide ---
-
-<div>
-    <div class="row justify-content-start slide-toc">
-        <div class="col-md-6">
-            <h2>Agenda</h2>
-        </div>
-        <div class="col-md-6 toc">
-            <py-md>
-                1.  Introduce PyScript
-                    -  What `[is|isNot]` PyScript
-                    -  Why PyScript
-                        (and `&lt;py-script&gt;`)
-                2.  PyScript for Data Science
-                    - Main features & potentials
-                3.  PyScript for Data Visualisation
-                    - Examples and Demo
-            </py-md>
-        </div>
+<!--Agenda-->
+<div class="row justify-content-start slide-toc">
+    <div class="col-md-6">
+        <h2>Agenda</h2>
+    </div>
+    <div class="col-md-6 toc">
+        <py-md>
+            1.  Introduce PyScript
+                -  What `[is|isNot]` PyScript
+                -  Why PyScript
+                    (and `&lt;py-script&gt;`)
+            2.  PyScript for Data Science
+                - Main features & potentials
+            3.  PyScript for Data Visualisation
+                - Examples and Demo
+        </py-md>
     </div>
 </div>
 
 --- slide ---
+<!--Disclaimer-->
+<div class="row justify-content-start">
+    <div class="col-md-12">
+        <h2>Disclaimer</h2>
+        <span class="text-center f30">from
+            <a href="https://pyscript.net" title="PyScript.net">
+                <em class="pyscript">pyscript.net</em>
+            </a>
+        </span>
+        <py-md>
+            > Please be advised that PyScript is very alpha and under heavy development.
 
-<div>
-    <div class="row justify-content-start">
-        <div class="col-md-12">
-            <h2>Disclaimer</h2>
-            <span class="text-center f30">from
-                <a href="https://pyscript.net" title="PyScript.net">
-                    <em class="pyscript">pyscript.net</em>
-                </a>
-            </span>
-            <py-md>
-                > Please be advised that PyScript is very alpha and under heavy development.
+            > There are many known issues, from usability to loading times, and you should expect
+            > things to change **often**.
 
-                > There are many known issues, from usability to loading times, and you should expect
-                > things to change **often**.
-
-                > We encourage people to play and explore with PyScript,
-                > but at this time we do not recommend using it for production.
-            </py-md>
-        </div>
+            > We encourage people to play and explore with PyScript,
+            > but at this time we do not recommend using it for production.
+        </py-md>
     </div>
 </div>
 
 --- slide ---
-
+<!--Meme-->
 <div class="meme-title">
     <img src="https://media.makeameme.org/created/work-in-progress-qzqa00.jpg" alt="WIP"/>
     <h1>Expect things to change</h1>
 </div>
 
 --- slide ---
-
+<!--Meme-->
 <div class="meme-title">
     <img src="https://images.cdn.circlesix.co/image/1/700/0/uploads/posts/2016/04/31bddd8961bbb98af97c166d8ad5e604.jpg"
          alt="WIP"/>
 </div>
 
-
 --- slide ---
-
+<!--Meme-->
 <div class="meme-title">
     <img src="https://c.tenor.com/bsjJw92LPHYAAAAC/tony-stark-screaming.gif"
          alt="Screaming Tony Stark"/>
@@ -149,13 +149,13 @@
 </div>
 
 --- slide ---
-
+<!--What is PyScript Title-->
 <div class="centered heading heading-bg heading-bg-2">
     <h1>What is <em class="pyscript">&lt;PyScript&gt;</em></h1>
 </div>
 
 --- slide ---
-
+<!--What is PyScript-->
 <div class="anim" id="anim1">
     <div class="row justify-content-start">
         <div class="col-sm-12">
@@ -167,19 +167,19 @@
             <span class="f30 text-center italic">It's a lot of things...</span>
             <py-md>
                 * Python in the browser
-                    - Python _ecosystem_ in the browser
+                    - Python **ecosystem** in the browser
                 * Python **with** Javascript
                 * Environment Management
                 * Flexible framework:
                     - create pluggable and extensible components;
-                    - UI components readily available (i.e. buttons, containers, REPL)
+                    - UI components readily available (i.e. `buttons`, `containers`, `REPL`)
             </py-md>
         </div>
     </div>
 </div>
 
 --- slide ---
-
+<!--What is PyScript-->
 <div class="anim" id="anim2">
     <div class="row justify-content-start">
         <div class="col-sm-12">
@@ -200,179 +200,363 @@
 </div>
 
 --- slide ---
-
-<div class="centered">
-    <link rel="stylesheet" href="typewriter.css" />
-    <h2 class="pyscript">&lt;PyScript&gt;</h2>
-
-    <!-- begin terminal window -->
-    <div class="terminal">
-        <div class="menu">
-            <div class="window-buttons close"></div>
-            <div class="window-buttons minimize"></div>
-            <div class="window-buttons zoom"></div>
-        </div>
-        <div class="screen">
-            <div class="code">
-                <pre id="typewriter">
-                    Wouldn't it be cool...
-                to run Python...
-                in your browser?
-               </pre>
-
-                <p class="line1">&lt;html&gt;<span class="cursor1">|</span></p>
-                <p class="line2">&nbsp;&nbsp;&nbsp;&nbsp;...<span class="cursor2">|</span></p>
-                <p class="line3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;py-script&gt;<span style="color: #aaa;"> <span style="color:#FFD580;">print</span>(<span style="color:#BAE67E;">'Now you can!'</span>) </span>&lt;/py-script&gt;<span class="cursor3">|</span></p>
-                <p class="line4">&lt;/html&gt;<span class="cursor4">|</span></p>
-                <p class="line5"><span class="cursor5">|</span></p>
-            </div>
+<!--Installing PyScript-->
+<div class="anim" id="anim3">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Installing <em class="pyscript">&lt;PyScript&gt;</em></h1>
         </div>
     </div>
-    <!-- end terminal window -->
-
-
-
-    </script>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <span class="f30 text-center">Just kidding... you don't need to install anything 😄</span>
+            <p class="body">
+                To use PyScript you can either
+                <a href="https://github.com/pyscript/pyscript/archive/refs/heads/main.zip"
+                target="_blank" title="Download PyScript on pyscript.net">
+                    download</a> it and follow the instructions,
+                or add the following lines to your page
+            </p>
+            <ul style="display:none;"><li></li></ul>
+            <py-md>
+                ```html
+                 &lt;link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /&gt;
+                 &lt;script defer src="https://pyscript.net/latest/pyscript.js"&gt;&lt;/script&gt;
+                ```
+            </py-md>
+        </div>
+    </div>
 </div>
 
 --- slide ---
+<!--Versioning PyScript-->
+<div class="anim" id="anim4">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Installing <em class="pyscript">&lt;PyScript&gt;</em></h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <span class="f32 text-center">There's more: <b>PyScript Versioning!</b></span>
+            <br/>
+            <span class="f30 text-center italic">
+                from
+                <a href="https://anaconda.cloud/announcing-pyscript-versioning">
+                Announcing PyScript Versioning: What you should know.
+                </a>
+            </span>
+            <py-md>
+                **`latest`**:
 
-<div class="title-only-meme">
+                ```html
+                 &lt;link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /&gt;
+                 &lt;script defer src="https://pyscript.net/latest/pyscript.js"&gt;&lt;/script&gt;
+                ```
+            </py-md>
+            <py-md>
+                **`alpha`**:
+
+                ```html
+                 &lt;link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /&gt;
+                 &lt;script defer src="https://pyscript.net/alpha/pyscript.js"&gt;&lt;/script&gt;
+                ```
+            </py-md>
+            <py-md>
+                **`unstable`**:
+
+                ```html
+                 &lt;link rel="stylesheet" href="https://pyscript.net/unstable/pyscript.css" /&gt;
+                 &lt;script defer src="https://pyscript.net/unstable/pyscript.js"&gt;&lt;/script&gt;
+                ```
+            </py-md>
+            <py-md>
+                **`pinned version`**:
+
+                ```html
+                 &lt;script defer src="https://pyscript.net/2022.05.1/pyscript.js"&gt;&lt;/script&gt;
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<!--Getting Started: Hello World-->
+<div class="anim" id="anim5">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title" style="padding-bottom: 1rem;">HowTO <em class="pyscript">&lt;PyScript&gt;</em></h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <span class="f32 text-center">Getting started with PyScript is <b>very easy</b></span>
+            <br/>
+            <py-md>
+                ```html
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;title&gt;PyScript Example&lt;/title&gt;
+                    &lt;link rel="icon" type="image/png" href="favicon.png"/&gt;
+                    &lt;link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/&gt;
+                    &lt;script defer src="https://pyscript.net/latest/pyscript.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                ```
+            </py-md>
+            <py-md>
+                ```html
+                &lt;body&gt;
+                Hello world! &lt;br&gt;
+                This is the current date and time, as computed by Python:
+                &lt;py-script&gt;
+                ```
+                ```python
+                    from datetime import datetime
+                    now = datetime.now()
+                    now.strftime("%m/%d/%Y, %H:%M:%S")
+                ```
+                ```html
+                &lt;/py-script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<!--Meme-->
+<div class="meme-title">
     <img src="https://i.imgflip.com/6k5n9e.jpg"
          alt="PHP vibes"/>
+    <h1>I have to confess...</h1>
 </div>
 
 --- slide ---
-
-<div class="title-only-meme">
+<!--Meme-->
+<div class="meme-title">
     <img src="https://i.redd.it/gj1y1f3ltmj41.jpg"
          alt="PHP racism"/>
-    <h1>We're all "Opinionated" about PHP</h1>
+    <h1> ... and typically Pythonistas are quite opinionated about PHP</h1>
 </div>
 
 --- slide ---
-
-<div class="title-only-meme">
+<!--PhP Rule Meme-->
+<div class="meme-title">
     <img src="https://preview.redd.it/oul3gz1bvwwy.jpg?auto=webp&s=2b2a479ad697bb44cca2b50cce664f262b28673f"
          alt="PHP Rulebook"/>
+    <h1>The one rule in the PHP bible...</h1>
 </div>
 
 --- slide ---
-
-<div class="title-only-meme">
+<!--Age Test JSP-->
+<div class="meme-title">
     <img src="https://i.imgflip.com/6k5n4r.jpg"
          alt="JSP"/>
+    <h1>Code in the browser</h1>
+</div>
+
+--- slide ---
+<!--JSP Example -->
+<div class="anim">
+    <div class="row justify-content-around">
+        <div class="col-sm-12">
+            <h1 class="title" style="padding-bottom: 1rem;">Java Server Pages <em>vibes (?)</em></h1>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-md-12">
+            <span class="f32 text-center italic">
+                source:
+                <a href="https://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html">
+                    www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html
+                </a>
+            </span>
+            <py-md>
+                ```html
+                &lt;html&gt;
+                &lt;head&gt;&lt;title&gt;First JSP&lt;/title&gt;&lt;/head&gt;
+                &lt;body&gt;
+                  &lt;%
+                    double num = Math.random();
+                    if (num &gt; 0.95) {
+                  %&gt;
+                      &lt;h2&gt;You'll have a luck day!&lt;/h2&gt;&lt;p&gt;(&lt;%= num %&gt;)&lt;/p&gt;
+                  &lt;%
+                    } else {
+                  %&gt;
+                      &lt;h2&gt;Well, life goes on ... &lt;/h2&gt;&lt;p&gt;(&lt;%= num %&gt;)&lt;/p&gt;
+                  &lt;%
+                    }
+                  %&gt;
+                  &lt;a href="&lt;%= request.getRequestURI() %&gt;"&gt;&lt;h3&gt;Try Again&lt;/h3&gt;&lt;/a&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                ```
+            </py-md>
+            <ul>
+                <li><b>JSP</b>: Server-side Technology, Servlet Engine required <i class="icon-tomcat"></i>.
+                </li>
+                <li><b class="pyscript">PyScript</b>: <u>Client-side Technology</u>, No installation is required!</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<!--Wrap your head-->
+<div class="centered heading heading-bg heading-bg-3">
+    <h1>Wrap your head around <em class="pyscript">&lt;PyScript&gt;</em></h1>
+</div>
+
+--- slide ---
+<!--Wrap your head-->
+<div class="anim" >
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1>Wrap your head around <em class="pyscript">&lt;PyScript&gt;</em></h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <span class="f30 text-center italic">At this point you might be wondering what exactly is PyScript..</span>
+            <py-md>
+                * The main goal of PyScript is to completely lower the barrier of programming
+                    - Making the web a _friendly_ and _hackable_ place for anyone willing to learn how to code;
+                    - Minimal setup and no-installation needed
+                * PyScript allows to use Python (_with_ or _without_ Javascript) to build **interactive web apps**
+                    - no server-side communication required, if not needed!
+                    - Python meets front-end development!
+                * PyScript **is not** a drop-in replacement for Javascript
+                    - ![JS Replacement](https://pbs.twimg.com/media/FSc3oy1XEAA9jHJ?format=jpg&name=small)
+            </py-md>
+        </div>
+    </div>
 </div>
 
 --- slide ---
 
-<div class="title-only-meme">
-    <img src="https://pbs.twimg.com/media/FSc3oy1XEAA9jHJ?format=jpg&name=small"
-         alt="JS dead"/>
-    <h1>PyScript is <b>Not</b> a drop-in replacement for JS</h1>
-</div>
-
---- slide ---
-<div class="centered">
-    <h1><em class="pyscript">&lt;py&gt;</em> 💜 JS </h1>
-</div>
-
---- slide ---
-<div class="slide">
-    <h1><em class="pyscript">&lt;py&gt;</em> 💜 JS </h1>
-
-    <img src="https://pyodide.org/en/stable/_static/pyodide-logo.png"
-         style="max-width: 25%; display: inline-block;" alt="Pyodide Logo"/>
-
-    <py-md>
-        * Execution of Python over WASM
-        * Full PyData Stack already available
-        * Direct Access to DOM & DOM manipulation objects
-    </py-md>
-
-    <py-md>
-        `from pyodide import create_proxy, fetch, open_url`
-        <br/>
-        `from js import document`
-        <br/>
-        `[...]`
-    </py-md>
+<!--Technical Description -->
+<div class="anim" >
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title" style="padding-bottom: 1rem;">On a (<em>slightly</em>) more technical level</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                * PyScript is a **single-page application** (`SPA`)
+                    - written in **TypeScript** using the **Svelte** framework;
+                    - styled with `Tailwind` CSS & bundled with `rollup.js`.
+                * (For this reason) Pyscript 💜 JS
+                    - Direct access to `DOM` and `DOM` manipulation objects;
+                    - PyScript builds on top of **Pyodide** ![Pyodide Logo](https://pyodide.org/en/stable/_static/pyodide-logo.png)
+                    - `pyodide`: CPython interpreted compiled with `emscripten` to **WebAssembly** (`WASM`)
+                * Full **PyData Stack** immediately available in the browser! 🚀 (Thanks to `pyodide`)
+            </py-md>
+        </div>
+    </div>
 </div>
 
 --- slide ---
 
-<div class="centered">
-    <h1>So.. What is <em class="pyscript">PyScript</em></h1>
+<div class="anim">
+    <div class="slide">
+        <h1><code class="pyscript">Py</code><code>[odide|script]</code></h1>
+
+        <py-md>
+            ```python
+            from pyodide import create_proxy, fetch, open_url
+
+            from js import document
+            [...]
+            ```
+        </py-md>
+        <py-md>
+            * Full(_-ish_) Python Standard Library
+            * Removed modules:
+                - `curses`; `dbm`; `ensurepip`; `idelelib`; `lib2to3`; `tkinter`; `turtle.py`; `turtledemo`; `venv`; `pwd`;
+            * Included but not working:
+                - `multiprocessing`; `threading`; `sockets`;
+        </py-md>
+    </div>
 </div>
 
 --- slide ---
 
-<div class="slide">
-    <h1>What is <em class="pyscript">PyScript</em></h1>
+<!--<div class="centered">-->
+<!--    <h1>So.. What is <em class="pyscript">PyScript</em></h1>-->
+<!--</div>-->
 
-    <py-md>
-        PyScript is a framework that allows users to create rich Python applications
-        in the browser using HTML's interface and the power of **Pyodide**, **WASM**,
-        and modern web technologies.
-        <br/>
-        The PyScript framework provides users at every experience level with access to an
-        expressive, easy-to-learn programming language with countless applications.
-    </py-md>
+<!-- -&#45;&#45; slide -&#45;&#45;-->
 
-    <py-md>
-        **Mission**: _Bring programming for the 99%._
-    </py-md>
-</div>
+<!--<div class="slide">-->
+<!--    <h1>What is <em class="pyscript">PyScript</em></h1>-->
+
+<!--    <py-md>-->
+<!--        PyScript is a framework that allows users to create rich Python applications-->
+<!--        in the browser using HTML's interface and the power of **Pyodide**, **WASM**,-->
+<!--        and modern web technologies.-->
+<!--        <br/>-->
+<!--        The PyScript framework provides users at every experience level with access to an-->
+<!--        expressive, easy-to-learn programming language with countless applications.-->
+<!--    </py-md>-->
+
+<!--    <py-md>-->
+<!--        **Mission**: _Bring programming to the 99%._-->
+<!--    </py-md>-->
+<!--</div>-->
+
+<!-- -&#45;&#45; slide -&#45;&#45;-->
+
+<!--<div class="slide">-->
+<!--    <h1>What is <em class="pyscript">PyScript</em></h1>-->
+<!--    <py-md>-->
+<!--        Python in the browser: Enable drop-in content, external file hosting,-->
+<!--        and application hosting without the reliance on server-side configuration-->
+<!--        <br/>-->
+<!--        Python ecosystem: Run many popular packages of Python and the scientific stack (thanks to-->
+<!--        Pyodide)-->
+<!--        <br/>-->
+<!--        Python with JavaScript: Bi-directional communication between Python and Javascript-->
+<!--    </py-md>-->
+<!--</div>-->
+
+<!-- -&#45;&#45; slide -&#45;&#45;-->
+
+<!--<div class="slide">-->
+<!--    <h1>What is <em class="pyscript">PyScript</em></h1>-->
+<!--    <py-md>-->
+<!--        Environment management: Allow users to define what packages and files to include for the-->
+<!--        page code to run-->
+<!--        <br/>-->
+<!--        Visual application development: Use readily available curated UI components, such as-->
+<!--        buttons, containers, text boxes, and more-->
+<!--    </py-md>-->
+<!--</div>-->
+
+<!-- -&#45;&#45; slide -&#45;&#45;-->
 
 --- slide ---
 
-<div class="slide">
-    <h1>What is <em class="pyscript">PyScript</em></h1>
-    <py-md>
-        Python in the browser: Enable drop-in content, external file hosting,
-        and application hosting without the reliance on server-side configuration
-        <br/>
-        Python ecosystem: Run many popular packages of Python and the scientific stack (thanks to
-        Pyodide)
-        <br/>
-        Python with JavaScript: Bi-directional communication between Python and Javascript
-    </py-md>
-</div>
-
---- slide ---
-
-<div class="slide">
-    <h1>What is <em class="pyscript">PyScript</em></h1>
-    <py-md>
-        Environment management: Allow users to define what packages and files to include for the
-        page code to run
-        <br/>
-        Visual application development: Use readily available curated UI components, such as
-        buttons, containers, text boxes, and more
-    </py-md>
-</div>
-
---- slide ---
-
-<div class="centered">
+<div class="meme-title">
+    <img src="imgs/twitter_jetbrains.png" alt="PyScript PyCharm Integration"/>
     <h1>Editor and IDE Integrations</h1>
 </div>
 
 --- slide ---
 
-<div class="title-only-meme">
-    <img src="imgs/twitter_jetbrains.png" alt="PyScript PyCharm Integration"/>
+<div class="centered heading-bg heading-bg-2">
+    <h1>Why PyScript ?</h1>
 </div>
 
 --- slide ---
 
-<div class="centered">
-    <h1>Why?</h1>
-</div>
-
---- slide ---
-
-<div class="centered heading-bg heading-bg-1">
+<div class="centered heading-bg heading-bg-2">
     <h1>Well.... why not?</h1>
 </div>
 
@@ -403,34 +587,34 @@
 --- slide ---
 
 <div class="title-only">
-    <h1>You can add a REPL to slides!</h1>
+    <h1>Introducing <code>&lt;py-repl&gt;</code>!</h1>
 </div>
 
 --- slide ---
 
-<div class="bg_purple">
+<div>
     <h1>Python has a cool mantra, try to import this ;)</h1>
     <py-repl></py-repl>
 </div>
 
 --- slide ---
 
-<div class="bg_purple">
+<div>
     <h1>import antigravity</h1>
     <py-repl auto-generate="true"></py-repl>
 </div>
 
 --- slide ---
 
-<div class="title-only-meme bg_grey">
+<div class="meme-title">
     <img src="https://c.tenor.com/HjA8WB2tLZoAAAAd/monty-python-holy-hand-grenade.gif"
          alt="Monty Python One Two Five"/>
-    <h1>The holy-hand grenade</h1>
+    <h1>The holyhand grenade</h1>
 </div>
 
 --- slide ---
 
-<div class="bg_grey">
+<div>
     <div class="flex mx-8">
         <div class="w-1/2 mx-1">
             <py-repl id="mlib-repl" auto-generate="true" std-out="mlib-output"
@@ -491,6 +675,6 @@ fig1
 <div class="centered slide-bg agenda">
     <h1>THANK YOU</h1>
     <p>
-        Thanks to Fabio Pliger, Philipp Rudiger, Guillaume Lamaitre, all of you
+        Thanks to Fabio Pliger, Philipp Rudiger, Guillaume Lemaitre, All of you
     </p>
 </div>
