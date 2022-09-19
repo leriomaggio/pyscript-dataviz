@@ -1,0 +1,642 @@
+/* Slides Tweaks */
+
+/*Nunito & Fira Code fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+:root {
+    --conda-main: #43B049;
+    --conda-main-2: #80BC00;
+    --conda-main-3: #00A19B;
+    --conda-main-4: #005E87;
+    --conda-main-5: #06262D;
+    --conda-second-1: #0E172B;
+    --conda-second-2: #00A5B5;
+    --conda-second-3: #DCF0EF;
+    --conda-second-4: #1A5632;
+    --conda-second-5: #F6E948;
+    --pyscript: #FDA703;
+
+    --conda-bg-1: #0E172B;
+    --conda-bg-2: #DCF0EF;
+    --conda-bg-3: #00A19B;
+
+    --conda-individual-ed: #43B049;
+    --conda-services: #80BC00;
+    --conda-team-ed: #00A19B;
+    --conda-enterprise-ed: #005E87;
+
+    --mono-font: 'Fira Code', monospace;
+
+    /* cards in examples */
+    --color-primary: var(--conda-main);
+    --card-shadow: 0px 5px 11px 0px rgb(0 0 0 / 15%);
+}
+
+a {
+    color: var(--conda-main-4);
+    font-weight: 500;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+blockquote p {
+    margin-bottom: 1rem !important;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    padding: 1rem 2rem;
+    background-color: rgba(220,240,239, 0.4);
+}
+
+h1, h2, h3 {
+    color: var(--conda-second-1)
+}
+
+h4, h5 {
+    color: var(--conda-second-4);
+}
+
+h6 {
+    color: var(--conda-second-2);
+}
+
+code {
+    color: var(--conda-second-4);
+    font-weight: 300;
+    font-family: var(--mono-font) !important;
+}
+
+code.contacts {
+    color: var(--conda-second-2);
+}
+
+.slider pre code {
+    text-align: left !important;
+    font-size: 1.5em;
+    font-family: var(--mono-font) !important;
+}
+
+.slider p code {
+    text-align: left !important;
+    font-size: 1em;
+    font-family: var(--mono-font) !important;
+}
+
+.CSSgal {
+    color: #000;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300 !important;
+    font-size: 18px;
+    max-height: 100%;
+    height: 94%;
+}
+
+/*Navigation*/
+.CSSgal .prevNext a {
+    background: #000;
+}
+
+
+/* Text in REPLs should always align left */
+.CSSgal div.cm-line {
+    text-align: left;
+    color: black;
+}
+
+.CSSgal div.cm-scroller {
+    background-color: white;
+}
+
+.CSSgal .slider h1 {
+    font-size: 4.5em;
+}
+
+.CSSgal .slider h2 {
+    margin-top: 40vh;
+    letter-spacing: -0.06em;
+    word-spacing: 0.2em;
+    font-size: 4em;
+    padding: 2.5rem;
+}
+
+.CSSgal .slider h3 {
+    font-size: 3.5em;
+}
+
+.CSSgal .slider h4 {
+    font-size: 3.2em;
+}
+
+.CSSgal a {
+    border-radius: 50%;
+    margin: 0 3px;
+    text-decoration: none;
+}
+
+/* Slides  */
+
+.slider div.centred {
+    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.slider p {
+    text-align: left;
+    margin-left: 10rem;
+    margin-bottom: 1em;
+    margin-right: 10rem;
+    font-size: 2em;
+}
+
+.slider ul,
+.slider ol {
+    text-align: left;
+    margin-left: 10%;
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+}
+
+.slider ul li,
+.slider ol li {
+    margin-top: 1.5rem;
+}
+
+.slider ul li em,
+.slider ol li em {
+    color: var(--conda-main);
+    font-style: normal;
+}
+
+.slider ul li img,
+.slider ol li img {
+    max-width: 25%;
+}
+
+.slider div ul {
+    list-style: disc;
+}
+
+.slider ol {
+    list-style: decimal;
+}
+
+.slider ol li::marker {
+    content: counter(list-item) "\a0\a0";
+    font-weight: 600;
+    color: #00833e;
+}
+
+.slider ol li::before {
+    content: " | ";
+    font-weight: 600;
+    color: #00833e;
+}
+
+.slider ol li ul li::marker {
+    content: "↪"
+}
+
+.slider ol li ul li::before {
+    content: " ";
+}
+
+.slider ul li ul {
+    text-align: left;
+    margin-left: 5%;
+    margin-bottom: 2rem;
+}
+
+.slide-source-btn a {
+    border-radius: 50%;
+    margin: 0 3px;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+footer {
+    padding: 1em;
+}
+
+
+/* CUSTOM Classes */
+.pyscript {
+    color: var(--pyscript);
+    font-style: normal;
+    font-weight: 600; /*semibold*/
+}
+
+.presenter {
+    border-radius: 50%;
+    border-color: #43B049;
+    border-width: 5px;
+    display: inline-block;
+    padding: 0 !important;
+}
+
+
+.header {
+    display: block;
+    margin: 15rem 15rem 0 5rem;
+    padding: 5rem 5rem;
+    max-width: 50%;
+}
+
+.with-presenter {
+    max-width: 70% !important;
+}
+
+.presenter-title {
+    margin-left: 10rem;
+    text-align: left;
+}
+
+h2.presenter-title {
+    font-size: 3.3em !important;
+    padding: 10px 0 !important;
+    margin-top: 0 !important;
+}
+
+h3.presenter-title {
+    font-size: 2.8em !important;
+    padding: 8px 0;
+}
+
+h4.presenter-title {
+    font-size: 2.5em !important;
+    padding: 8px 0;
+}
+
+h5.presenter-title {
+    font-size: 2em !important;
+}
+
+h6.presenter-title {
+    font-size: 1.2em !important;
+}
+
+.slide {
+    margin-top: 15rem !important;
+}
+
+.title {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+}
+
+.slide div {
+    margin: 10px 0;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.title-only h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 40%;
+    text-align: center;
+}
+
+.title-only h1.centred {
+    font-size: 3.5em;
+    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.title-only img {
+    margin: auto;
+    height: 30%;
+    /*margin-top: 20px;*/
+}
+
+.meme-title {
+    width: auto;
+    height: 100%;
+}
+
+.meme-title img {
+    height: 65%;
+    margin: 5% auto;
+}
+
+.meme-title h1 {
+    height: 100%;
+    margin-top: 20px;
+    margin-left: 0 !important;
+    text-align: center !important;
+    font-weight: 500;
+    color: var(--conda-main);
+}
+
+.slide-bg {
+    background-position: right -236px center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto !important;
+}
+
+.agenda {
+    background-image: url("themes/imgs/logo-bg.png") !important;
+}
+
+.network {
+    background-image: url("themes/imgs/logo-bg-2.png") !important;
+}
+
+.slide-toc {
+    height: 100%;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.slide-toc h2, .slide-toc h1 {
+    font-size: 6rem !important;
+    margin-top: 0 !important;
+}
+
+.slide-toc ul li,
+.slide-toc ol li {
+    margin-top: 2rem;
+}
+
+.slide-toc > div {
+    padding-top: 15rem;
+}
+
+.slide-toc ul, .slide-toc ol {
+    font-size: 3rem !important;
+}
+
+.slide-toc ul li ul, .slide-toc ol li ol,
+.slide-toc ul li ol, .slide-toc ol li ul {
+    font-size: 2.5rem !important;
+}
+
+.slide-toc [id^="py-"][id$="container"], .slide-toc div[id^="py-"],
+.col-md-6 [id^="py-"][id$="container"], .col-md-6 div[id^="py-"] {
+    margin-left: 0 !important;
+}
+
+.toc {
+    background-color: var(--conda-bg-2);
+}
+
+.heading-bg {
+    background-repeat: no-repeat !important;
+    background-position: center 100px !important;
+    background-size: unset !important;
+}
+
+.heading-bg-1 {
+    background-color: var(--conda-main) !important;
+    background-image: url("themes/imgs/logo-heading-white.png") !important;
+}
+
+.heading-bg-2 {
+    background-color: var(--conda-bg-2) !important;
+    background-image: url("themes/imgs/logo-heading-green.png") !important;
+}
+
+.heading-bg-3 {
+    background-color: var(--conda-bg-3) !important;
+    background-image: url("themes/imgs/logo-heading-white.png") !important;
+}
+
+.heading h1 {
+    font-size: 4.8em !important;
+    margin-top: 5rem;
+    padding-top: 15rem;
+}
+
+.centered {
+    padding-top: 10rem;
+}
+
+.centered h1 {
+    padding: 20rem 0;
+}
+
+.centered h2 {
+    padding: 2rem 0 !important;
+    margin-top: 0 !important;
+}
+
+.footer-logo {
+    max-width: 25%;
+}
+
+.screen p, .screen pre {
+    margin-left: 5rem !important;
+}
+
+[id^="py-"][id$="container"], div[id^="py-"] {
+    max-width: 85%;
+    margin-left: 0;
+}
+
+div[id^="py-"] pre {
+    margin-left: 20rem;
+    border-radius: 5px;
+    /*margin-bottom: 1rem;*/
+}
+
+div[id^="py-"] p {
+    margin-bottom: 0 !important;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.f25 {
+    font-size: 25px;
+}
+
+.f30 {
+    font-size: 30px;
+}
+
+.f32 {
+    font-size: 32px;
+}
+
+.f35 {
+    font-size: 35px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.body {
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+    margin-left: 15rem !important;
+}
+
+.body div[id^="py-"] pre {
+    margin-left: 0 !important;
+}
+
+.cm-line {
+    font-family: var(--mono-font);
+    font-size: 1.3rem !important;
+    font-weight: 400 !important;
+}
+
+/* Slide Animation */
+.slide-fade li {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+}
+
+.slide-fade li.show {
+    opacity: 1;
+}
+
+.fade-item {
+    transition: 2s all ease-in-out;
+    opacity: 0;
+}
+
+.fadein {
+    animation: fadeIn 0.9s 1;
+    animation-fill-mode: forwards;
+}
+
+.fadeout {
+    animation: fadeIn 0.9s 1;
+    animation-fill-mode: backwards;
+    animation-direction: reverse;
+}
+
+#replout {
+    width: 40% !important;
+    margin-left: 15rem;
+    text-align: left;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Examples Cards */
+.card {
+    height: 20rem;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    -webkit-box-shadow: var(--card-shadow);
+    box-shadow: var(--card-shadow);
+}
+
+.card a h2 {
+    color: var(--color-primary);
+    margin: 0;
+    font-family: "Inconsolata", monospace;
+    font-size: 2.25rem;
+}
+
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-card {
+    max-width: 1650px;
+    margin: 20rem auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.card-content h2,
+.card-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.card-content h2 {
+    font-size: 3em !important;
+}
+
+.card-content p {
+    font-size: 1.5rem;
+}
+
+.demo {
+    height: 100%;
+    margin-left: 9rem;
+    margin-top: 2rem;
+}
+
+.demo iframe {
+    width: 95%;
+    height: 95%;
+}
+
+
+@media (min-width: 600px) {
+    .container-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .container-card {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* RESPONSIVE */
+@media (min-width: 911px) and (max-width: 1580px) {
+    .with-presenter {
+        max-width: 90% !important;
+    }
+
+    .header {
+        margin: 18rem 0 0 6rem;
+        max-width: 45%;
+    }
+
+    h2.presenter-title {
+        font-size: 2.6em !important;
+    }
+
+    h3.presenter-title {
+        font-size: 2.4em !important;
+    }
+
+    h4.presenter-title {
+        font-size: 2.2em !important;
+    }
+
+    .presenter-title {
+        margin-left: 6rem;
+    }
+
+    .meme-title img, img {
+        max-width: 75%;
+        height: auto !important;
+    }
+
+    .terminal {
+        max-width: 85% !important;
+    }
+
+    .menu {
+        padding-left: 10rem;
+    }
+}

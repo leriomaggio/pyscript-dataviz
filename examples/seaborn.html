@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Feature Correlation with Matplotlib</title>
+    <title>Feature Correlation Heatmap with Seaborn</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.png">
@@ -23,8 +23,8 @@
     </py-config>
     <link rel="stylesheet" href="examples.css" />
     <py-env>
+        - seaborn
         - matplotlib
-        - pandas
         - scikit-learn
     </py-env>
 </head>
@@ -34,36 +34,44 @@
         <div class="app-header">
             <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
                  alt="PyScript Logo" />
-            <span class="title">Feature Correlation on Wine Dataset using <code>pandas &amp; matplotlib</code></span>
+            <span class="title">Plotting Correlation on Wine Dataset using <code>seaborn</code></span>
         </div>
     </nav>
     <div class="row overflow-hidden" id="preamble">
         <div class="col mh-100 float-right">
             <p>
-                Feature correlation on Wine Dataset as provided by <code>scikit-learn</code>.
-                The example will leverage on <code>pandas.plotting</code>
-                to generate a <code>scatter_matrix</code> of features, then rendered via
-                <code>Matplotlib</code> backend.
+                Viewing the correlation coefficients as a table is useful if you want the
+              precise value of the correlation, but often you want an overview which
+              can provide some indications at a glance.
+              The easiest way to view it is as a <b>heat map</b> where each cell has a
+              colour showing the value of the correlation.
+              We will be using <code>seaborn</code> visualisation library that provides a
+              higher-level interface to <code>matplotlib</code>.
             </p>
         </div>
     </div>
     <div class="row overflow-hidden" id="image">
-        <div class="col mh-100 float-right" id="mpl">
+        <div class="col mh-100 float-right" id="seaborn">
         </div>
     </div>
 </div>
 <py-script>
     import matplotlib.pyplot as plt
-
     from sklearn.datasets import load_wine
-    from pandas.plotting import scatter_matrix
+    import seaborn as sns
 
     features, _ = load_wine(as_frame=True, return_X_y=True)
 
-    fig, ax = plt.subplots(figsize=(16, 12))
+    fig, ax = plt.subplots(figsize=(14, 12))
     ax.set_aspect('equal')
-    _ = scatter_matrix(features, ax=ax)
-    Element("mpl").write(fig)
+
+    # seaborn code
+    cmap = sns.diverging_palette(10, 220, as_cmap=True)
+    corr = features.corr()
+    sns.heatmap(corr, vmin=-1.0, vmax=1.0, square=True, cmap=cmap, cbar=True, ax=ax)
+
+    # PyScript DOM API
+    Element("seaborn").write(fig)
 </py-script>
 
 </body>

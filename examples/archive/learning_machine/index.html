@@ -264,7 +264,7 @@ def _stream_to_base64(img_array, uuid=0):
     # return f"data:image/png;base64,{base64.b64encode(img_array).decode('utf-8')}";
 
 def _get_data():
-    url = 'https://raw.githubusercontent.com/leriomaggio/pyscript-dataviz/main/fer_test.csv'
+    url = 'https://raw.githubusercontent.com/leriomaggio/pyscript-dataviz/reorg/examples/d3/learning_machine/fer_test.csv'
     raw_fer = pd.read_csv(open_url(url))
     raw_fer["data_partition"] = raw_fer.Usage.apply(_set_partition)
     dataset = raw_fer[raw_fer["data_partition"] == "Test"][:25]

@@ -1,0 +1,137 @@
+<html>
+<head>
+    <title>NetworkX Example using D3.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+        {
+            "autoclose_loader": true,
+            "runtimes": [{
+                "src": "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js",
+                "name": "pyodide-0.21.3",
+                "lang": "python"
+            }]
+        }
+    </py-config>
+    <link rel="stylesheet" href="examples.css" />
+    <script type="importmap">
+    {
+      "imports": {
+        "d3": "https://cdn.skypack.dev/d3@7"
+      }
+    }
+    </script>
+    <py-env>
+        - networkx
+    </py-env>
+</head>
+<body>
+
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header">
+        <div class="app-header">
+            <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
+                 alt="PyScript Logo" />
+            <span class="title">Dense Graphs using <code>networkx &amp; d3.js</code></span>
+        </div>
+    </nav>
+    <div class="row overflow-hidden" id="preamble">
+        <div class="col mh-100 float-right">
+            <p>
+                In this example we will create a fully-connected network of <code>10</code>
+                nodes using <code>networkX</code> API.
+                <br/>
+                This time though the network will be rendered using the well-known
+                <code>d3.js</code> library.
+                <br />
+                The very <b>cool bit</b> of using <code>PyScript</code>
+                is that we can finally do <code>import d3</code> in our Python code!
+            </p>
+        </div>
+    </div>
+    <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
+        <div class="col mh-100" id="networkx">
+        </div>
+    </div>
+</div>
+
+
+
+<py-script>
+    import networkx as nx
+    import d3
+    import js
+    from pyodide.ffi import create_proxy, to_js
+
+    G = nx.complete_graph(10)
+    node_list = [{"id": node[0], "name": node[1]} for node in G.nodes(data=True)]
+    edge_list = [{"source": edge[0], "target": edge[1]} for edge in nx.to_edgelist(G)]
+
+    margin = {"top": 30, "right": 30, "bottom": 70, "left": 40}
+    width = 1500 - margin["left"] - margin["right"]
+    height = 768 - margin["top"] - margin["bottom"]
+
+    viz = d3.select("#networkx")
+    viz.select(".loading").remove()
+
+    svg = (viz
+           .append("svg")
+           .attr("width", width + margin["left"] + margin["right"])
+           .attr("height", height + margin["top"] + margin["bottom"])
+           .append("g")
+           .attr("transform",
+                 f"translate({margin['left']},{margin['top']})")
+           )
+    svg = to_js(svg)
+    nodes_js = to_js(node_list)
+    edges_js = to_js(edge_list, dict_converter=js.Object.fromEntries)
+
+    link = (svg
+            .selectAll("line")
+            .data(edges_js)
+            .enter()
+            .append("line")
+            .style("stroke", "#aaa")
+            )
+
+    node = (svg
+            .selectAll("circle")
+            .data(nodes_js)
+            .enter()
+            .append("circle")
+            .attr("r", 13)
+            .style("fill", "#2078b4")
+            )
+
+    @create_proxy
+    def ticked():
+        (link
+            .attr("x1",  lambda d, *_: d.source.x)
+             .attr("y1", lambda d, *_: d.source.y)
+             .attr("x2", lambda d, *_: d.target.x)
+             .attr("y2", lambda d, *_: d.target.y)
+             )
+        (node
+         .attr("cx", lambda d, *_: d.x + 6)
+         .attr("cy", lambda d, *_: d.y - 6)
+         )
+
+    id_fn = create_proxy(lambda d, *_: d["id"])
+
+    simulation = (d3.forceSimulation(nodes_js)
+                  .force("link", d3.forceLink().id(id_fn).links(edges_js))
+                  .force("charge", d3.forceManyBody().strength(-1500))
+                  .force("center", d3.forceCenter(width / 2, height / 2))
+                  .on("tick", ticked)
+                  )
+</py-script>
+</body>
+</html>

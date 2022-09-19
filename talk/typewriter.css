@@ -1,0 +1,174 @@
+.terminal {
+    box-shadow: 1px 1px 40px rgb(0 0 0 / 30%);
+    margin: 5rem auto;
+    max-width: 50%;
+
+}
+
+.window-buttons {
+    background-color: #ff3b47;
+    border-radius: 50%;
+    border: 1px solid #c03d44;
+    display: inline-block;
+    height: 10px;
+    left: -30rem;
+    position: relative;
+    top: 6px;
+    width: 10px;
+}
+
+.minimize {
+    background-color: #ffc100;
+    border-color: #9d802c;
+    /*left: 11px;*/
+}
+
+.zoom {
+    background-color: #00d742;
+    border-color: #049931;
+    /*left: 16px;*/
+}
+
+.menu {
+    background-color: #1D1E22;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-sizing: border-box;
+    height: 25px;
+    margin: 0 auto;
+}
+
+.screen {
+    background-color: #1D1E22;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 2rem 1rem;
+}
+
+#typewriter {
+    animation: hide 26.5s 1s;
+    font-family: var(--mono-font);
+    height: 0;
+    line-height: 2.2;
+    opacity: 1;
+    position: relative;
+    left: 34%;
+    color: #fff !important;
+    width: auto;
+}
+
+.terminal p {
+    font-family: var(--mono-font);
+    font-size: 1.2em !important;
+    left: 10%;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    width: 0;
+    margin: 0 !important;
+}
+
+.terminal span {
+    color: #fff;
+    font-weight: bold;
+}
+
+.line1 {
+    animation: type 1s 2s steps(20, end) forwards;
+    color: #9CD9F0;
+}
+
+.cursor1 {
+    animation: blink 1s 2.2s 1 forwards;
+}
+
+.line2 {
+    animation: type 1s 3.7s steps(20, end) forwards;
+    color: #888;
+}
+
+.cursor2 {
+    animation: blink 1s 3.9s 1 forwards;
+}
+
+.line3 {
+    animation: type .7s 5.4s steps(20, end) forwards;
+    color: #FFAE57;
+}
+
+.cursor3 {
+    animation: blink 1s 5.6s 1 forwards;
+}
+
+.line4 {
+    animation: type 1s 7.1s steps(20, end) forwards;
+    color: #9CD9F0;
+}
+
+.cursor4 {
+    animation: blink 1s 7.3s 4 forwards;
+}
+
+/* ----------------------------------
+ Animations
+-----------------------------------*/
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes hide {
+    0% {
+        /* display: none;
+        height: auto; */
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes type {
+    to {
+        width: 40rem;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        background-position: center 200%;
+    }
+    to {
+        background-position: center bottom;
+    }
+}

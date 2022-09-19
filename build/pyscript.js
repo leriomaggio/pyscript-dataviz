@@ -27368,7 +27368,7 @@ var app = (function () {
         headerIds: true,
         headerPrefix: '',
         highlight: null,
-        langPrefix: 'language-',
+        langPrefix: 'hljs language-',
         mangle: true,
         pedantic: false,
         renderer: null,
@@ -30142,7 +30142,7 @@ var app = (function () {
             mainDiv.id = this.id;
             this.id = `${this.id}-container`;
             mainDiv.innerHTML = marked.parse(this.src);
-            console.log(marked.parse(this.src));
+            // console.log(marked.parse(this.src));
             this.appendChild(mainDiv);
         }
     }

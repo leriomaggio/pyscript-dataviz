@@ -4,160 +4,9 @@ from js import console, document, window
 from pyodide import create_proxy
 from pyodide.http import pyfetch
 
-CSS_TEMPLATE_ORIG = """
-*{box-sizing: border-box; -webkit-box-sizing: border-box; }
-html, body { height: 100%; }
-body { margin: 0; font: 16px/1.3 sans-serif; }
+from pathlib import Path
 
-/*
-PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
-http://stackoverflow.com/a/34696029/383904
-*/
-
-.CSSgal {
-	position: relative;
-	overflow: hidden;
-	height: 100%; /* Or set a fixed height */
-}
-
-/* SLIDER */
-
-.CSSgal .slider {
-	height: 100%;
-	white-space: nowrap;
-	font-size: 0;
-	transition: 0.8s;
-}
-
-/* SLIDES */
-
-.CSSgal .slider > * {
-	font-size: 1rem;
-	display: inline-block;
-	white-space: normal;
-	vertical-align: top;
-	height: 100%;
-	width: 100%;
-	background: none 50% no-repeat;
-	background-size: cover;
-}
-
-/* PREV/NEXT, CONTAINERS & ANCHORS */
-
-.CSSgal .prevNext {
-	position: absolute;
-	z-index: 1;
-	top: 50%;
-	width: 100%;
-	height: 0;
-}
-
-.CSSgal .prevNext > div+div {
-	visibility: hidden; /* Hide all but first P/N container */
-}
-
-.CSSgal .prevNext a {
-	background: #fff;
-	position: absolute;
-	width:       60px;
-	height:      60px;
-	line-height: 60px; /* If you want to place numbers */
-	text-align: center;
-	opacity: 0.7;
-	-webkit-transition: 0.3s;
-					transition: 0.3s;
-	-webkit-transform: translateY(-50%);
-					transform: translateY(-50%);
-	left: 0;
-}
-.CSSgal .prevNext a:hover {
-	opacity: 1;
-}
-.CSSgal .prevNext a+a {
-	left: auto;
-	right: 0;
-}
-
-/* NAVIGATION */
-
-.CSSgal .bullets {
-	position: absolute;
-	z-index: 2;
-	bottom: 0;
-	padding: 10px 0;
-	width: 100%;
-	text-align: center;
-}
-.CSSgal .bullets > a {
-	display: inline-block;
-	width:       30px;
-	height:      30px;
-	line-height: 30px;
-	text-decoration: none;
-	text-align: center;
-	background: rgba(255, 255, 255, 1);
-	-webkit-transition: 0.3s;
-					transition: 0.3s;
-}
-.CSSgal .bullets > a+a {
-	background: rgba(255, 255, 255, 0.5); /* Dim all but first */
-}
-.CSSgal .bullets > a:hover {
-	background: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* NAVIGATION BUTTONS */
-/* ALL: */
-.CSSgal >s:target ~ .bullets >* {      background: rgba(255, 255, 255, 0.5);}
-/* ACTIVE */
-#s1:target ~ .bullets >*:nth-child(1) {background: rgba(255, 255, 255,   1);}
-#s2:target ~ .bullets >*:nth-child(2) {background: rgba(255, 255, 255,   1);}
-#s3:target ~ .bullets >*:nth-child(3) {background: rgba(255, 255, 255,   1);}
-#s4:target ~ .bullets >*:nth-child(4) {background: rgba(255, 255, 255,   1);}
-/* More slides? Add here more rules */
-
-/* PREV/NEXT CONTAINERS VISIBILITY */
-/* ALL: */
-.CSSgal >s:target ~ .prevNext >* {      visibility: hidden;}
-/* ACTIVE: */
-#s1:target ~ .prevNext >*:nth-child(1) {visibility: visible;}
-#s2:target ~ .prevNext >*:nth-child(2) {visibility: visible;}
-#s3:target ~ .prevNext >*:nth-child(3) {visibility: visible;}
-#s4:target ~ .prevNext >*:nth-child(4) {visibility: visible;}
-/* More slides? Add here more rules */
-
-/* SLIDER ANIMATION POSITIONS */
-
-#s1:target ~ .slider {transform: translateX(   0%); -webkit-transform: translateX(   0%);}
-#s2:target ~ .slider {transform: translateX(-100%); -webkit-transform: translateX(-100%);}
-#s3:target ~ .slider {transform: translateX(-200%); -webkit-transform: translateX(-200%);}
-#s4:target ~ .slider {transform: translateX(-300%); -webkit-transform: translateX(-300%);}
-/* More slides? Add here more rules */
-
-
-/* YOU'RE THE DESIGNER! 
-   ____________________
-   All above was mainly to get it working :)
-   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
-
-.CSSgal{
-	color: #fff;	
-	text-align: center;
-}
-.CSSgal .slider h2 {
-	margin-top: 40vh;
-	font-weight: 200;
-	letter-spacing: -0.06em;
-	word-spacing: 0.2em;
-	font-size: 3em;
-}
-.CSSgal a {
-	border-radius: 50%;
-	margin: 0 3px;
-	color: rgba(0,0,0,0.8);
-	text-decoration: none;
-}
-"""
+SLIDE_DELIMITER = "--- slide ---"
 
 CSS_TEMPLATE = """
 *{{box-sizing: border-box; -webkit-box-sizing: border-box; }}
@@ -311,6 +160,8 @@ div.slide-source-btn > a+a {{
 div.slide-source-btn > a:hover {{
     background: rgba(255, 255, 255, 0.7) !important;
 }}
+
+{theme}
 """
 
 NAVIG_BTN_TEMPL = (
@@ -324,7 +175,7 @@ SLIDER_ANIM_POS_TEMPL = (
 
 
 class ExtensionTemplate:
-    theme = None
+    theme_attr = None
 
     @property
     def children(self):
@@ -337,12 +188,14 @@ class ExtensionTemplate:
 class SlideShow(ExtensionTemplate):
     def __init__(self, parent):
         self.parent = parent
-        self.source = parent.getAttribute("src") or ""
-        console.log(f"Source: {self.source}")
+        self.src_attr = parent.getAttribute("src") or ""
+        self.theme_attr = parent.getAttribute("theme") or ""
 
         self._children = []
         self._id = self.parent.id
-        self.slides = []
+        self.slides_ = []
+        self.source_ = None  # holding ref to fetched slides content
+        self.theme_ = None  # holding ref to fetched theme, if any
 
         loc = document.location
         self.base = loc.origin + loc.pathname + "#s%s"
@@ -360,14 +213,15 @@ class SlideShow(ExtensionTemplate):
 
         def loc_changed(*args, **kws):
             loc = document.location
-            console.log(loc.hash)
+            # FIXME: Debug
+            # console.log(loc.hash)
 
         window.addEventListener("hashchange", create_proxy(self.compute_index))
 
     def catch_arrow_event(self, evt, *args, **kws):
-        if evt.keyCode in {"33", 33}:
+        if evt.keyCode in {"33", 33, "37", 37}:
             self.previous()
-        if evt.keyCode in {"34", 34}:
+        if evt.keyCode in {"34", 34, "39", 39}:
             self.next()
 
     def catch_event(self, evt, *args, **kws):
@@ -377,7 +231,7 @@ class SlideShow(ExtensionTemplate):
             self.next()
 
     def next(self):
-        if self.index >= len(self.slides):
+        if self.index >= len(self.slides_):
             self.index = 1
         else:
             self.index += 1
@@ -386,14 +240,13 @@ class SlideShow(ExtensionTemplate):
 
     def previous(self):
         if self.index < 2:
-            self.index = len(self.slides)
+            self.index = len(self.slides_)
         else:
             self.index -= 1
         self.move_slide()
 
     def move_slide(self):
         url = self.base % self.index
-        console.log(url)
         document.location.href = url
 
     def connect(self):
@@ -409,10 +262,16 @@ class SlideShow(ExtensionTemplate):
         document.getElementsByTagName("head")[0].appendChild(css)
 
     async def get_slides(self):
-        response = await pyfetch(self.source)
-        self._source = await response.string()
+        response = await pyfetch(self.src_attr)
+        self.source_ = await response.string()
 
-        self.slides = slides_content = self._source.split("--- new ---")
+        if self.theme_attr:
+            css_response = await pyfetch(self.theme_attr)
+            self.theme_ = await css_response.string()
+        else:
+            self.theme_ = ""
+
+        self.slides_ = slides_content = self.source_.split(SLIDE_DELIMITER)
         slides_headers = []
         slides_navi = []
         cleaned_content = []
@@ -445,16 +304,17 @@ class SlideShow(ExtensionTemplate):
                 next = 1
             else:
                 next = i + 2
-            cleaned_content.append(content)
+            cleaned_content.append(f'<div id="slide{cur_slide}">{content}</div>')
 
-            console.log(content)
+            # console.log(content)
             slides_navi.append(
-                f'<div><a href="#s{prev}"></a><a href="#s{next}"></a></div>'
+                f'<div><a href="#s{prev}" class="prev"></a>'
+                f'<a href="#s{next}" class="next"></a></div>'
             )
 
         for k, v in extra_css.items():
             extra_css[k] = "\n".join(v)
-
+        extra_css["theme"] = self.theme_
         new_css = CSS_TEMPLATE.format(**extra_css)
         self.add_style(new_css)
 

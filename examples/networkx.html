@@ -1,6 +1,6 @@
-<html>
+<html lang="en">
 <head>
-    <title>Feature Correlation with Matplotlib</title>
+    <title>NetworkX Example using default Matplotlib Rendering Engine</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.png">
@@ -23,47 +23,44 @@
     </py-config>
     <link rel="stylesheet" href="examples.css" />
     <py-env>
+        - networkx
         - matplotlib
-        - pandas
-        - scikit-learn
     </py-env>
 </head>
 <body>
+
 <div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
     <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header">
         <div class="app-header">
             <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
                  alt="PyScript Logo" />
-            <span class="title">Feature Correlation on Wine Dataset using <code>pandas &amp; matplotlib</code></span>
+            <span class="title">Dense Graphs using <code>networkx &amp; matplotlib</code></span>
         </div>
     </nav>
     <div class="row overflow-hidden" id="preamble">
         <div class="col mh-100 float-right">
             <p>
-                Feature correlation on Wine Dataset as provided by <code>scikit-learn</code>.
-                The example will leverage on <code>pandas.plotting</code>
-                to generate a <code>scatter_matrix</code> of features, then rendered via
-                <code>Matplotlib</code> backend.
+                In this example we will create a simple fully-connected network of <code>10</code>
+                nodes using <code>networkX</code> API.
+                <br/>
+                The network will be rendered as an image (<em>canvas</em>) object using the
+                default <code>Matplotlib</code> rendering engine.
             </p>
         </div>
     </div>
-    <div class="row overflow-hidden" id="image">
-        <div class="col mh-100 float-right" id="mpl">
+    <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
+        <div class="col mh-100" id="networkx">
         </div>
     </div>
 </div>
 <py-script>
+    import networkx as nx
     import matplotlib.pyplot as plt
 
-    from sklearn.datasets import load_wine
-    from pandas.plotting import scatter_matrix
-
-    features, _ = load_wine(as_frame=True, return_X_y=True)
-
-    fig, ax = plt.subplots(figsize=(16, 12))
-    ax.set_aspect('equal')
-    _ = scatter_matrix(features, ax=ax)
-    Element("mpl").write(fig)
+    fig, ax = plt.subplots()
+    G = nx.complete_graph(10)
+    nx.draw(G, ax=ax)
+    Element("networkx").write(fig)
 </py-script>
 
 </body>

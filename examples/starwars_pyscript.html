@@ -1,0 +1,265 @@
+<html>
+<head>
+    <title>StarWars Character Interactions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .node {
+            stroke: #FFF;
+            stroke-width: 2px;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: .4;
+        }
+
+        .labels {
+            font-size: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+        {
+            "autoclose_loader": true,
+            "runtimes": [{
+                "src": "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js",
+                "name": "pyodide-0.21.3",
+                "lang": "python"
+            }]
+        }
+    </py-config>
+    <link rel="stylesheet" href="examples.css" />
+    <script type="importmap">
+    {
+      "imports": {
+        "d3": "https://cdn.skypack.dev/d3@7"
+      }
+    }
+    </script>
+    <py-env>
+        - networkx
+    </py-env>
+
+</head>
+<body>
+
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header">
+        <div class="app-header">
+            <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
+                 alt="PyScript Logo" />
+            <span class="title">Star Wars Characters interactions in different episodes using <code>PyScript &amp; d3.js</code></span>
+        </div>
+    </nav>
+    <div class="row overflow-hidden" id="preamble">
+        <div class="col mh-100 float-right">
+            <p>
+                Have you ever wondered what are the interactions of the characters in the
+                different Episodes of <b>Star Wars</b> movies ?
+
+                In this example we will generate the network of interactions for each selected
+                episode using full <code>d3.js</code> API via <code>PyScript</code>.
+                <b>Data</b> for this example are gathered from this amazing
+                <a href="https://github.com/evelinag/StarWars-social-network" target="_blank">repo</a>
+                <br/>
+                Inspired by this <em>super cool article</em>:
+                <a href="http://evelinag.com/blog/2015/12-15-star-wars-social-network/" target="_blank">Star Wars Social Network</a>
+                by Evelina Gabasova.
+
+            </p>
+        </div>
+    </div>
+    <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
+        <label for="episodes">Choose your Star Wars Episode:</label>
+        <select name="episodes" id="episodes">
+            <option value="1">I: The Phantom Menace</option>
+            <option value="2">II: Attack of the Clones</option>
+            <option value="3">III: Revenge of the Sith</option>
+            <option value="4">IV: Star Wars</option>
+            <option value="5">V: The Empire Strikes Back</option>
+            <option value="6">VI: Return of the Jedi</option>
+            <option value="7">VII: The Force Awakens</option>
+        </select>
+        <div class="col mh-100" id="starwars">
+        </div>
+    </div>
+</div>
+
+<py-script>
+    import d3
+    import js
+
+    from dataclasses import dataclass
+    from collections import namedtuple
+    from math import sqrt
+
+    from js import document
+    from pyodide.ffi import create_proxy, to_js
+    from pyodide.http import pyfetch
+    import asyncio
+
+    Margin = namedtuple("Margin", ["top", "bottom", "left", "right"])
+    Graph = namedtuple("Graph", ["nodes", "links"])
+
+    @dataclass
+    class Character:
+        id: int
+        name: str
+        value: int
+        colour: str
+
+    @dataclass
+    class Interaction:
+        source: int
+        target: int
+        value: int
+
+
+    DATA_URL = "https://raw.githubusercontent.com/evelinag/StarWars-social-network/master/networks/starwars-episode-{episode}-interactions.json"
+
+
+    async def fetch_data(data_url):
+        response = await pyfetch(url=data_url, method="GET")
+        graph_data = await response.json()
+
+        characters = list()
+        for idx, node_info in enumerate(graph_data["nodes"]):
+            characters.append(Character(id=idx, **node_info))
+
+        interactions = list()
+        for link_info in graph_data["links"]:
+            interactions.append(Interaction(**link_info))
+
+        characters = to_js(characters, dict_converter=js.Array.new)
+        interactions = to_js(interactions, dict_converter=js.Map.new)
+        graph = Graph(nodes=characters, links=interactions)
+        return graph
+
+    def setup_svg_graph(graph, svg, drag_fn):
+        drag_started, dragged, drag_ended = drag_fn
+        link = (svg
+                .append("g")
+                .attr("class", "link")
+                .selectAll("line")
+                .data(graph.links)
+                .enter()
+                .append("line")
+                .style("stroke-width", create_proxy(lambda d, *_: sqrt(d.value)))
+                )
+        node = (svg
+                .append("g")
+                .attr("class", "node")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter()
+                .append("circle")
+                .attr("r", 5)
+                .style("fill", create_proxy(lambda d, *_: d.colour))
+                .attr("r", create_proxy(lambda d, *_: 2 * sqrt(d.value) + 2))
+                .call(d3.drag()
+                      .on("start", drag_started)
+                      .on("drag", dragged)
+                      .on("end", drag_ended)
+                      )
+                )
+        node.append("title").text(create_proxy(lambda d, *_: d.name))
+        text = (svg
+                .append("g")
+                .attr("class", "labels")
+                .selectAll("text")
+                .data(graph.nodes)
+                .enter()
+                .append("text")
+                .attr("dx", 10)
+                .attr("dy", ".35em")
+                .text(create_proxy(lambda d, *_: d.name))
+                )
+
+        return node, link, text
+
+    async def starwars_interactions_d3(episode):
+
+        @create_proxy
+        def drag_started(event, d):
+            if not event.active:
+                simulation.alphaTarget(0.3).restart()
+            d.fx = event.x
+            d.fy = event.y
+
+        @create_proxy
+        def dragged(event, d):
+            d.fx = event.x
+            d.fy = event.y
+
+        @create_proxy
+        def drag_ended(event, d):
+            if not event.active:
+                simulation.alphaTarget(0)
+            d.cx = d.fx
+            d.cy = d.fy
+
+        @create_proxy
+        def ticked():
+            (link
+             .attr("x1", lambda d, *_: d.source.x)
+             .attr("y1", lambda d, *_: d.source.y)
+             .attr("x2", lambda d, *_: d.target.x)
+             .attr("y2", lambda d, *_: d.target.y)
+             .attr("value", lambda d, *_: d.value)
+             ),
+            (node
+             .attr("cx", lambda d, *_: d.x)
+             .attr("cy", lambda d, *_: d.y)
+             )
+            (text
+             .attr("x", lambda d, *_: d.x)
+             .attr("y", lambda d, *_: d.y)
+             )
+
+        starwars = d3.select("#starwars")
+        starwars.select("svg").remove()
+
+        margin = Margin(top=0, right=30, bottom=0, left=30)
+        width = 1500 - margin.left - margin.right
+        height = 768 - margin.top - margin.bottom
+
+        svg = (starwars
+               .append("svg")
+               .attr("width", width + margin.left + margin.right)
+               .attr("height", height + margin.top + margin.bottom)
+               .append("g")
+               .attr("transform", f"translate({margin.left},{margin.top})")
+               )
+        data_url = DATA_URL.format(episode=episode)
+        graph = await fetch_data(data_url)
+
+        simulation = (d3.forceSimulation(graph.nodes)
+                      .force("link", d3.forceLink().id(create_proxy(lambda d, *_: d.id))
+                             .links(graph.links))
+                      .force("charge", d3.forceManyBody().strength(-400))
+                      .force("center", d3.forceCenter(width / 2, height / 2))
+                      )
+        node, link, text = setup_svg_graph(graph, svg,
+                                           drag_fn=(drag_started, dragged, drag_ended))
+        simulation.on("tick", ticked)
+
+
+    @create_proxy
+    async def on_change(*args, **kwargs):
+        episode = js.document.getElementById("episodes").value
+        await starwars_interactions_d3(episode)
+
+    document.getElementById("episodes").addEventListener("change", on_change);
+    starwars_interactions_d3(1)
+</py-script>
+</body>
+</html>

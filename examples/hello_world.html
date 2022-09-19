@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
     <title>PyScript Hello World</title>
 
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="examples.css"/>
+</head>
 
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-  </head>
+<body>
 
-  <body>
-    Hello world! <br>
-    This is the current date and time, as computed by Python:
-    <py-script>
-from datetime import datetime
-now = datetime.now()
-now.strftime("%m/%d/%Y, %H:%M:%S")
-    </py-script>
-  </body>
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header">
+        <div class="app-header">
+            <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
+                 alt="PyScript Logo" />
+            <span class="title">PyScript Hello World</code></span>
+        </div>
+    </nav>
+    <div class="row overflow-hidden" id="preamble">
+        <div class="col mh-100">
+            Hello world! <br>
+            This is the current date and time, as computed by Python:
+            <py-script>
+                    from datetime import datetime
+                    now = datetime.now()
+                    now.strftime("%m/%d/%Y, %H:%M:%S")
+            </py-script>
+        </div>
+    </div>
+</div>
+</body>
 </html>
