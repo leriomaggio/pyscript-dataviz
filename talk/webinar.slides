@@ -47,10 +47,16 @@
             </py-md>
                 <ul>
                     <li>
-                        <i class="fa fa-twitter"></i> | <i class="fa fa-github"></i>
-                        <code class="contacts">@leriomaggio</code>
+                        Casual M:TG Wizard 🧙‍♂️
+                        <ul>
+                            <li>
+                                <i class="fa fa-twitter"></i> | <i class="fa fa-github"></i>
+                                <code class="contacts">@leriomaggio</code>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
+
         </div>
     </div>
 </div>
@@ -194,9 +200,12 @@
             <span class="f30 text-center italic">In essence...</span>
             <py-md>
                 * PyScript is <u>just HTML</u>...
-                - ..only a bit (ok maybe a lot) more powerful...
+                    - ..only a bit (ok maybe a lot) more powerful...
                 - bring the whole Python ecosystem directly in the browser!
                 * **Mission**: _Bring Programming for the 99%_
+                * The main goal of PyScript is to completely lower the barrier of programming
+                    - Making the web a _friendly_ and _hackable_ place for anyone willing to learn how to code;
+                    - Minimal setup and no-installation needed
             </py-md>
         </div>
     </div>
@@ -538,9 +547,9 @@
         <div class="col-md-12">
             <span class="f30 text-center italic">At this point you might be wondering what exactly is PyScript..</span>
             <py-md>
-                * The main goal of PyScript is to completely lower the barrier of programming
-                    - Making the web a _friendly_ and _hackable_ place for anyone willing to learn how to code;
-                    - Minimal setup and no-installation needed
+                * PyScript is a **single-page application** (`SPA`)
+                    - written in **TypeScript** using the **Svelte** framework;
+                    - styled with `Tailwind` CSS & bundled with `rollup.js`.
                 * PyScript allows to use Python (_with_ or _without_ Javascript) to build **interactive web apps**
                     - no server-side communication required, if not needed!
                     - Python meets front-end development!
@@ -603,41 +612,19 @@
 <div class="anim" >
     <div class="row justify-content-start">
         <div class="col-sm-12">
-            <h1 class="title" style="padding-bottom: 1rem;">On a (<em>slightly</em>) more technical level 🕵️</h1>
+            <h1 class="title" style="padding-bottom: 1rem;">PyScript Architecture️</h1>
         </div>
     </div>
     <div class="row justify-content-start">
         <div class="col-md-12">
-            <py-md>
-                * PyScript is a **single-page application** (`SPA`)
-                    - written in **TypeScript** using the **Svelte** framework;
-                    - styled with `Tailwind` CSS & bundled with `rollup.js`.
-            </py-md>
-            <img alt="PyScript Architecture Schematic" style="max-width: 50%; margin-left: 20rem;"
+            <img alt="PyScript Architecture Schematic" style="max-width: 45%; margin-left: 20rem;"
                  src="./themes/imgs/pyscript_arch.png" />
             <span class="text-center" style="font-size: 16px"><b>Credits:</b> @fpliger & @pwang</span>
-        </div>
-    </div>
-</div>
-
---- slide ---
-
-<!--Technical Description -->
-<div class="anim" >
-    <div class="row justify-content-start">
-        <div class="col-sm-12">
-            <h1 class="title" style="padding-bottom: 1rem;">On a (<em>slightly</em>) more technical level 🕵️</h1>
-        </div>
-    </div>
-    <div class="row justify-content-start">
-        <div class="col-md-12">
             <py-md>
                 * Therefore, Pyscript 💜 JS
                     - Direct access to `DOM` and `DOM` manipulation objects;
                     - PyScript builds on top of **Pyodide** ![Pyodide Logo](https://pyodide.org/en/stable/_static/pyodide-logo.png)
                     - `pyodide`: CPython interpreter compiled with `emscripten` to **WebAssembly** (`WASM`)
-                * Full **PyData Stack** immediately available in the browser! 🚀 (Thanks to `pyodide`)
-                    - more on this in the next slides!
             </py-md>
         </div>
     </div>
@@ -692,7 +679,7 @@
                 - kicked off by Mozilla, now discontinued;
             * Goal of Iodide was to bring **scientific computing** in the browser with NO Server communication
                 - `jupyter` I am looking at you 👀
-            * `Pyodide` gives access (out of the box) to a number of popular PyData libraries
+            * `Pyodide` provides access to full **PyData Stack** immediately available in the browser! 🚀
                 - `bokeh | networkx | numpy | scipy | scikit-learn | ...`
         </py-md>
     </div>
@@ -789,7 +776,7 @@
     word-break: break-word;
         }
     </style>
-    <h1>Python has a cool mantra, try to import this ;)</h1>
+    <h1>Python has a cool mantra</h1>
     <div class="row justify-content-around">
         <div class="col-md-12">
             <py-repl output="replout">import this</py-repl>
@@ -824,7 +811,7 @@
 
 <div>
     <h1 class="title" style="padding-bottom: 1rem; padding-top: 5rem;">
-        <code>py-repl</code> meets <code>numpy</code> and <code>matplotlib</code></h1>
+        <code>py-repl</code> with <code>numpy</code> and <code>matplotlib</code></h1>
     <div class="flex mx-8">
         <div class="w-1/2 mx-1">
             <py-repl id="mlib-repl" auto-generate="true" std-out="mlib-output"
@@ -1416,7 +1403,7 @@ fig1
 
 <div class="centered">
     <h1>Demo of all Demos (this slideshow :) )</h1>
-    <h2>Please have a look at the code in <i class="fa fa-github"></i>
+    <h2>Please have a look at the <i class="fa fa-github"></i>
         repo:
         <a href="http://github.com/leriomaggio/pyscript-dataviz">github.com/leriomaggio/pyscript-dataviz</a>
     </h2>
