@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>Dimensionality Reduction with Bokeh</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+        {
+            "autoclose_loader": true,
+            "runtimes": [{
+                "src": "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js",
+                "name": "pyodide-0.21.3",
+                "lang": "python"
+            }]
+        }
+    </py-config>
+    <link rel="stylesheet" href="examples.css" />
+    <py-env>
+        - bokeh
+        - pandas
+        - scikit-learn
+    </py-env>
+</head>
+<body>
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header">
+        <div class="app-header">
+            <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
+                 alt="PyScript Logo" />
+            <span class="title">Dimensionality Reduction on Wine Dataset using <code>bokeh</code></span>
+        </div>
+    </nav>
+    <div class="row overflow-hidden" id="preamble">
+        <div class="col mh-100 float-right">
+            <p>
+                In this example we will set up a <em>Dimensionality Reduction</em> pipeline using
+                the <b>Principal Component Analysis</b> <code>(PCA)</code> method as provided
+                by <code>scikit-learn</code>.
+                <br/>
+                Embeddings will be visualised using a <code>bokeh</code> interactive scatter plot
+                showing both <em>training</em> and <em>testing</em> <b>standardised</b> features.
+            </p>
+        </div>
+    </div>
+    <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
+        <div class="col mh-100" id="bokeh">
+        </div>
+    </div>
+</div>
+<py-script>
+    from bokeh.embed import json_item
+    from bokeh.plotting import figure
+
+    from sklearn.datasets import load_wine
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.decomposition import PCA
+    from sklearn.model_selection import train_test_split
+
+    import json
+    from js import Bokeh, JSON, console
+
+    RANDOM_STATE = 42
+    MARKERS = ["circle", "diamond", "square"]
+    COLOURS = {"train": "orange", "test": "mediumorchid"}
+    MARKER_SIZE = 12
+
+    features, targets = load_wine(as_frame=False, return_X_y=True)
+    scaler = StandardScaler()
+    embedding = PCA(n_components=2)
+
+    X_train, X_test, y_train, y_test = train_test_split(features, targets, stratify=targets,
+                                                  test_size=0.30, random_state=RANDOM_STATE)
+    X_train_std = scaler.fit_transform(X_train)
+    X_test_std = scaler.transform(X_test)
+    X_train_pca = embedding.fit_transform(X_train_std)
+    X_test_pca = embedding.transform(X_test_std)
+
+    # create a new plot with default tools, using figure
+    p = figure(plot_width=1024, plot_height=768,
+               x_axis_label="First Principal Component",
+               y_axis_label="Second Principal Component",
+               title="PCA Dimension Reduction on Normalised Wine Dataset features")
+
+    for cls, marker in enumerate(MARKERS):
+        p.scatter(X_train_pca[y_train == cls, 0], X_train_pca[y_train == cls, 1],
+                  color=COLOURS["train"], size=MARKER_SIZE, marker=marker,
+                  legend_label=f"Class {cls} - Train")
+
+    for cls, marker in enumerate(MARKERS):
+        p.scatter(X_test_pca[y_test == cls, 0], X_test_pca[y_test == cls, 1],
+                  color=COLOURS["test"], size=MARKER_SIZE, marker=marker,
+                  legend_label=f"Class {cls} - Test")
+
+    p_json = json.dumps(json_item(p, "bokeh"))
+    Bokeh.embed.embed_item(JSON.parse(p_json))
+</py-script>
+
+</body>
+</html>

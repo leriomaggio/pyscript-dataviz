@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <title>NetworkX Example using default Matplotlib Rendering Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+        {
+            "autoclose_loader": true,
+            "runtimes": [{
+                "src": "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js",
+                "name": "pyodide-0.21.3",
+                "lang": "python"
+            }]
+        }
+    </py-config>
+    <link rel="stylesheet" href="examples.css" />
+    <py-env>
+        - networkx
+        - matplotlib
+    </py-env>
+</head>
+<body>
+
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header">
+        <div class="app-header">
+            <img src="https://pyscript.net/assets/images/pyscript-sticker-black.svg" class="logo"
+                 alt="PyScript Logo" />
+            <span class="title">Dense Graphs using <code>networkx &amp; matplotlib</code></span>
+        </div>
+    </nav>
+    <div class="row overflow-hidden" id="preamble">
+        <div class="col mh-100 float-right">
+            <p>
+                In this example we will create a simple fully-connected network of <code>10</code>
+                nodes using <code>networkX</code> API.
+                <br/>
+                The network will be rendered as an image (<em>canvas</em>) object using the
+                default <code>Matplotlib</code> rendering engine.
+            </p>
+        </div>
+    </div>
+    <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
+        <div class="col mh-100" id="networkx">
+        </div>
+    </div>
+</div>
+<py-script>
+    import networkx as nx
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots()
+    G = nx.complete_graph(10)
+    nx.draw(G, ax=ax)
+    Element("networkx").write(fig)
+</py-script>
+
+</body>
+</html>

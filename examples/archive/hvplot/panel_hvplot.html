@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panel HVPlot Example</title>
-    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <link rel="icon" type="image/x-icon" href="../../favicon.png">
 
     <script type="text/javascript"
             src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.js"></script>
@@ -29,14 +29,15 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
     <py-env>
         - numpy
         - panel
         - bokeh
-        - https://files.pythonhosted.org/packages/fe/81/b3f09f570b5b563974474ace1b535cd6f210c944dded9e19bc6de892cce0/holoviews-1.15.0a2-py2.py3-none-any.whl
+        - holoviews
+        - hvplot
     </py-env>
 </head>
 
@@ -61,14 +62,14 @@
 
 <py-script>
     import asyncio
-    from micropip import _micropip
-
-    _micropip.PACKAGE_MANAGER.installed_packages['holoviews'].version = '1.15.0'
-    await _micropip.install('hvplot')
-
-    import holoviews as hv
-
-    hv.extension._loaded = True
+    # from micropip import _micropip
+    #
+    # _micropip.PACKAGE_MANAGER.installed_packages['holoviews'].version = '1.15.0'
+    # await _micropip.install('hvplot')
+    #
+    # import holoviews as hv
+    #
+    # hv.extension._loaded = True
 
     import panel as pn
     import hvplot.pandas

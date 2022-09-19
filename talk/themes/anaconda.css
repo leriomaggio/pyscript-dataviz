@@ -26,6 +26,10 @@
     --conda-enterprise-ed: #005E87;
 
     --mono-font: 'Fira Code', monospace;
+
+    /* cards in examples */
+    --color-primary: var(--conda-main);
+    --card-shadow: 0px 5px 11px 0px rgb(0 0 0 / 15%);
 }
 
 a {
@@ -420,7 +424,7 @@ h6.presenter-title {
 
 .centered h2 {
     padding: 2rem 0 !important;
-    margin-top: 10rem !important;
+    margin-top: 0 !important;
 }
 
 .footer-logo {
@@ -512,6 +516,12 @@ div[id^="py-"] p {
     animation-direction: reverse;
 }
 
+#replout {
+    width: 40% !important;
+    margin-left: 15rem;
+    text-align: left;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -520,6 +530,75 @@ div[id^="py-"] p {
         opacity: 1;
     }
 }
+
+/* Examples Cards */
+.card {
+    height: 20rem;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    -webkit-box-shadow: var(--card-shadow);
+    box-shadow: var(--card-shadow);
+}
+
+.card a h2 {
+    color: var(--color-primary);
+    margin: 0;
+    font-family: "Inconsolata", monospace;
+    font-size: 2.25rem;
+}
+
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-card {
+    max-width: 1650px;
+    margin: 20rem auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.card-content h2,
+.card-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.card-content h2 {
+    font-size: 3em !important;
+}
+
+.card-content p {
+    font-size: 1.5rem;
+}
+
+.demo {
+    height: 100%;
+    margin-left: 9rem;
+    margin-top: 2rem;
+}
+
+.demo iframe {
+    width: 95%;
+    height: 95%;
+}
+
+
+@media (min-width: 600px) {
+    .container-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .container-card {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 
 /* RESPONSIVE */
 @media (min-width: 911px) and (max-width: 1580px) {

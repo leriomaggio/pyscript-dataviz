@@ -1,69 +1,175 @@
 <html>
 <head>
-    <title>PyScript Examples</title>
+    <title>PyScript Data Visualisation Examples</title>
     <meta charset="iso-8859-1">
     <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.4.1/font-mfizz.min.css"
+          integrity="sha512-Cdvnk1SFWqcb3An6gMyqDRH40Js8qmsWcSK10I2gSifCe2LilaPMsHd6DldEvQ3uIlCb1qdRUrNeAFFleOu4xQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="slide.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="../talk/themes/anaconda.css" />
+    <style>
+        body {
+            color: #000;
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200 !important;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 300 !important;
+        }
+
+        .card-content h2 {
+            font-size: 2.5rem !important;
+        }
+
+        .card {
+            height: 22rem !important;
+        }
+
+        a:link {
+            text-decoration: underline;
+            text-decoration-color: var(--conda-main);
+        }
+    </style>
 </head>
 <body>
-<!--<div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">-->
-<!--    <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header" style="background-color: #000000;">-->
-<!--        <button type="button" class="navbar-toggle collapsed" id="sidebarCollapse">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="app-header">-->
-<!--            <a class="navbar-brand app-logo" href="/">-->
-<!--                <img src="./logo.png" class="app-logo" alt="PyScript Logo">-->
-<!--            </a>-->
-<!--            <a class="title" href="" style="color: #f0ab3c;">PyScript Examples</a>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--</div>-->
+<div>
+    <div class="row justify-content-around">
+        <div class="col-md-12">
+            <div class="container-card">
+                <div class="card">
+                    <div class="card-content">
+                        <a href="hello_world.html" target="_blank" title="Hello World">
+                            <h2>Hello World</h2>
+                        </a>
+                        <p>
+                            Simple Hello World App using PyScript.
+                        </p>
+                    </div>
+                </div>
 
-<h1>PyScript Examples Collection</h1>
+                <div class="card">
+                    <div class="card-content">
+                        <a href="matplotlib.html" target="_blank" title="Matplotlib Correlation Matrix">
+                            <h2>Matplotlib</h2>
+                        </a>
+                        <p>
+                            We will be using the Wine Dataset from <code>scikit-learn</code> to
+                            plot a correlation feature matrix using
+                            <a href="https://matplotlib.org/"
+                               target="_blank" title="Matplotlib">Matplotlib</a>
+                            and <a href="https://pandas.pydata.org/" target="_blank"
+                                   title="Pandas">Pandas</a>
+                        </p>
+                    </div>
+                </div>
 
-<a href="hello_world.html" title="Hello World with PyScript">Hello World with PyScript</a>
-<br>
-<h3>Matplotlib</h3>
-<a href="matplotlib/matplotlib.html" title="PyScript and Matplotlib">Matplotlib Backend</a>
-<br>
+                <div class="card">
+                    <div class="card-content">
+                        <a href="seaborn.html" target="_blank" title="Seaborn Correlation Heatmap">
+                            <h2>Seaborn</h2>
+                        </a>
+                        <p>
+                            We will take a step further in visualising feature correlations
+                            in the Wine Dataset. This time we will plot a HeatMap
+                            using <a href="https://seaborn.pydata.org/"
+                               target="_blank" title="Seaborn">Seaborn</a>.
+                        </p>
+                    </div>
+                </div>
 
-<h3>Bokeh</h3>
-<a href="bokeh/bokeh.html" title="Bokeh Simple Example">Bokeh Example</a>
-<br>
-<a href="bokeh/bokeh_interactive.html" title="Bokeh Interactive Example">Bokeh Interactive Example</a>
-<br>
+                <div class="card">
+                    <div class="card-content">
+                        <a href="bokeh.html" target="_blank" title="Bokeh Dimension Reduction Scatter plot">
+                            <h2>Bokeh</h2>
+                        </a>
+                        <p>
+                            We will generate an embedding of features of the Wine dataset
+                            using <code>PCA</code> and visualised as interactive scatter plot
+                            using <a href="http://docs.bokeh.org/en/latest/"
+                               target="_blank" title="Bokeh">Bokeh</a>.
+                        </p>
+                    </div>
+                </div>
 
-<h3>HVPlot</h3>
-<a href="hvplot/hvplot.html" title="HVPlot">Using HVPlot</a>
-<br>
-<a href="hvplot/panel_hvplot.html" title="Using Panel and HVPlot">Panel and HvPlot in PyScript</a>
-<br>
+                <div class="card">
+                    <div class="card-content">
+                        <a href="panel_hvplot.html" target="_blank"
+                           title="Panel/HvPlot Interactive App for Dimension Reduction">
+                            <h2>Panel &amp; HvPlot</h2>
+                        </a>
+                        <p>
+                            Simple and quick full-Python interactive webapp using
+                            using
+                            <a href="https://panel.holoviz.org/"
+                               target="_blank" title="Panel">Panel</a> and
+                            <a href="https://hvplot.holoviz.org/"
+                               target="_blank" title="HvPlot">HvPlot</a>.
+                        </p>
+                    </div>
+                </div>
 
-<h3>Panel</h3>
-<a href="panel/panel_kmeans.html" title="Panel KMeans">Panel KMeans</a>
-<br>
-<a href="panel/panel_stream.html" title="Panel Stream">Panel Stream</a>
-<br>
-<a href="panel/panel_deckgl.html" title="Panel DeckGl">Panel DeckGl</a>
-<br>
-
-<h3>Folium</h3>
-<a href="folium/folium.html" title="Folium">Folium</a>
-<br>
-
-<h3>Altair</h3>
-<a href="altair/altair.html" title="Altair">Altair with PyScript</a>
-<br>
-
-<h3>D3</h3>
-<a href="d3/d3.html" title="D3 Example">D3 Basic Example with PyScript</a>
-<br>
-<a href="d3/learning_machine/index.html" title="Learning Machine">The Learning Machine with PyScript</a>
-<br>
-
-<h3>Misc</h3>
-<a href="misc/tsne.html" title="TSNE with PyScript">t-SNE with PyScript</a>
-<br>
-
+                <div class="card">
+                    <div class="card-content">
+                        <a href="networkx.html" target="_blank" title="NetworkX and Matplotlib example">
+                            <h2>NetworkX</h2>
+                        </a>
+                        <p>
+                            We will show a simple networkX example using
+                            <a href="https://networkx.org/"
+                               target="_blank" title="Networkx">NetworkX</a> and
+                            <code>&lt;py-script&gt;</code>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <a href="networkx_d3.html" target="_blank"
+                        title="NetworkX and D3.js Example">
+                             <h2>NetworkX and D3.js</h2>
+                        </a>
+                        <p>
+                            We will take a step further, and we will see an
+                            example demonstrating the integration of
+                            <a href="https://networkx.org/"
+                               target="_blank" title="Networkx">NetworkX</a> with
+                            <code>d3.js</code> via
+                            <code>&lt;py-script&gt;</code>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <a href="starwars_pyscript.html" target="_blank"
+                        title="Star Wars Social Network with D3.js and PyScript">
+                             <h2>Star Wars Social Network w/ D3.js</h2>
+                        </a>
+                        <p>
+                            We will have fun creating a full-Python based
+                            <code>d3.js</code> webapp.
+                            How cool it would be if we could..<code>import d3</code>?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

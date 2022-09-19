@@ -1,0 +1,46 @@
+/*Nunito & Fira Code fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+code {
+    font-family: "Fira Code", monospace;
+    color: #FDA703;
+}
+
+.logo {
+    margin: 0 auto;
+    max-width: 100px;
+    width: 100%;
+    display: inline;
+}
+
+#header {
+    background-color: #2D2E35;
+}
+
+#preamble {
+    margin-top: 2rem;
+    z-index: 20;
+}
+
+#image {
+    margin-top: -5rem;
+    z-index: 1;
+}
+
+.title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline;
+}
+
+a {
+    color: #113fb9 !important;
+    font-weight: 400;
+}
