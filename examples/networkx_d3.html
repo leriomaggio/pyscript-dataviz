@@ -69,11 +69,10 @@
     import networkx as nx
     import d3
     import js
-
     from pyodide.ffi import create_proxy, to_js
 
-    G = G = nx.complete_graph(10)
-    node_list = [{"id": node[0], "name": node[1]} for node in G.nodes(data="club")]
+    G = nx.complete_graph(10)
+    node_list = [{"id": node[0], "name": node[1]} for node in G.nodes(data=True)]
     edge_list = [{"source": edge[0], "target": edge[1]} for edge in nx.to_edgelist(G)]
 
     margin = {"top": 30, "right": 30, "bottom": 70, "left": 40}
@@ -92,7 +91,6 @@
                  f"translate({margin['left']},{margin['top']})")
            )
     svg = to_js(svg)
-
     nodes_js = to_js(node_list)
     edges_js = to_js(edge_list, dict_converter=js.Object.fromEntries)
 
@@ -113,26 +111,26 @@
             .style("fill", "#2078b4")
             )
 
+    @create_proxy
     def ticked():
         (link
-            .attr("x1", create_proxy(lambda d, *_: d.source.x))
-             .attr("y1", create_proxy(lambda d, *_: d.source.y))
-             .attr("x2", create_proxy(lambda d, *_: d.target.x))
-             .attr("y2", create_proxy(lambda d, *_: d.target.y))
+            .attr("x1",  lambda d, *_: d.source.x)
+             .attr("y1", lambda d, *_: d.source.y)
+             .attr("x2", lambda d, *_: d.target.x)
+             .attr("y2", lambda d, *_: d.target.y)
              )
         (node
-         .attr("cx", create_proxy(lambda d, *_: d.x + 6))
-         .attr("cy", create_proxy(lambda d, *_: d.y - 6))
+         .attr("cx", lambda d, *_: d.x + 6)
+         .attr("cy", lambda d, *_: d.y - 6)
          )
 
-    ticked_fn = create_proxy(ticked)
     id_fn = create_proxy(lambda d, *_: d["id"])
 
     simulation = (d3.forceSimulation(nodes_js)
                   .force("link", d3.forceLink().id(id_fn).links(edges_js))
                   .force("charge", d3.forceManyBody().strength(-1500))
                   .force("center", d3.forceCenter(width / 2, height / 2))
-                  .on("tick", ticked_fn)
+                  .on("tick", ticked)
                   )
 </py-script>
 </body>

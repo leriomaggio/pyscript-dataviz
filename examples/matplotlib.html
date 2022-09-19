@@ -41,7 +41,6 @@
         <div class="col mh-100 float-right">
             <p>
                 Feature correlation on Wine Dataset as provided by <code>scikit-learn</code>.
-                <br/>
                 The example will leverage on <code>pandas.plotting</code>
                 to generate a <code>scatter_matrix</code> of features, then rendered via
                 <code>Matplotlib</code> backend.
@@ -49,7 +48,7 @@
         </div>
     </div>
     <div class="row overflow-hidden" id="image">
-        <div class="col mh-100 float-right" id="wasm">
+        <div class="col mh-100 float-right" id="mpl">
         </div>
     </div>
 </div>
@@ -64,7 +63,7 @@
     fig, ax = plt.subplots(figsize=(16, 12))
     ax.set_aspect('equal')
     _ = scatter_matrix(features, ax=ax)
-    Element("wasm").write(fig)
+    Element("mpl").write(fig)
 </py-script>
 
 </body>

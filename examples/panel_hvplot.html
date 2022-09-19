@@ -107,7 +107,6 @@
     df = pd.DataFrame({"X0": X_pca[:, 0], "X1": X_pca[:, 1], "Class": y})
 
     EXTENSIONS = ["matplotlib", "bokeh"]
-
     hvplot.extension('matplotlib', 'bokeh')
     select_extension = pn.widgets.Select(options=EXTENSIONS, name="HvPlot Extensions")
 

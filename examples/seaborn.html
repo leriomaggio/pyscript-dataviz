@@ -23,9 +23,8 @@
     </py-config>
     <link rel="stylesheet" href="examples.css" />
     <py-env>
-        - matplotlib
         - seaborn
-        - pandas
+        - matplotlib
         - scikit-learn
     </py-env>
 </head>
@@ -44,23 +43,20 @@
                 Viewing the correlation coefficients as a table is useful if you want the
               precise value of the correlation, but often you want an overview which
               can provide some indications at a glance.
-
               The easiest way to view it is as a <b>heat map</b> where each cell has a
               colour showing the value of the correlation.
-                <br/>
               We will be using <code>seaborn</code> visualisation library that provides a
               higher-level interface to <code>matplotlib</code>.
             </p>
         </div>
     </div>
     <div class="row overflow-hidden" id="image">
-        <div class="col mh-100 float-right" id="wasm">
+        <div class="col mh-100 float-right" id="seaborn">
         </div>
     </div>
 </div>
 <py-script>
     import matplotlib.pyplot as plt
-
     from sklearn.datasets import load_wine
     import seaborn as sns
 
@@ -68,10 +64,14 @@
 
     fig, ax = plt.subplots(figsize=(14, 12))
     ax.set_aspect('equal')
+
+    # seaborn code
     cmap = sns.diverging_palette(10, 220, as_cmap=True)
     corr = features.corr()
     sns.heatmap(corr, vmin=-1.0, vmax=1.0, square=True, cmap=cmap, cbar=True, ax=ax)
-    Element("wasm").write(fig)
+
+    # PyScript DOM API
+    Element("seaborn").write(fig)
 </py-script>
 
 </body>
