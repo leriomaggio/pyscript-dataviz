@@ -101,8 +101,6 @@
             1.  Introduce PyScript
                 -  What `[is|isNot]` PyScript
                 -  How to PyScript
-                -  Why PyScript
-                    (and `&lt;py-script&gt;`)
             2.  PyScript for Data Science
                 - Main features & potentials
             3.  PyScript for Data Visualisation
@@ -188,11 +186,24 @@
 </div>
 
 --- slide ---
+
+<div class="centered heading-bg heading-bg-2">
+    <h1>Why PyScript ?</h1>
+</div>
+
+--- slide ---
+
+<div class="centered heading-bg heading-bg-2">
+    <h1>Well.... why not?</h1>
+</div>
+
+--- slide ---
+
 <!--What is PyScript-->
 <div class="anim" id="anim2">
     <div class="row justify-content-start">
         <div class="col-sm-12">
-            <h1 class="title">What is <em class="pyscript">&lt;PyScript&gt;</em></h1>
+            <h1 class="title"><em class="pyscript">&lt;PyScript&gt;</em> at a first glance</h1>
         </div>
     </div>
     <div class="row justify-content-start">
@@ -216,12 +227,12 @@
 <div class="anim" id="anim3">
     <div class="row justify-content-start">
         <div class="col-sm-12">
-            <h1 class="title">Installing <em class="pyscript">&lt;PyScript&gt;</em></h1>
+            <h1 class="title">Getting started with <em class="pyscript">&lt;PyScript&gt;</em></h1>
         </div>
     </div>
     <div class="row justify-content-start">
         <div class="col-md-12">
-            <span class="f30 text-center">Just kidding... you don't need to install anything 😄</span>
+            <span class="f30 text-center">You don't need to install anything! 😎</span>
             <p class="body">
                 To use PyScript you can either
                 <a href="https://github.com/pyscript/pyscript/archive/refs/heads/main.zip"
@@ -245,12 +256,12 @@
 <div class="anim" id="anim4">
     <div class="row justify-content-start">
         <div class="col-sm-12">
-            <h1 class="title">Installing <em class="pyscript">&lt;PyScript&gt;</em></h1>
+            <h1 class="title">There's more: <em class="pyscript">&lt;PyScript&gt;</em> Versioning</h1>
         </div>
     </div>
     <div class="row justify-content-start">
         <div class="col-md-12">
-            <span class="f32 text-center">There's more: <b>PyScript Versioning!</b></span>
+            <span class="f32 text-center">PyScript Versioning</span>
             <br/>
             <span class="f30 text-center italic">
                 from
@@ -310,7 +321,7 @@
     </div>
     <div class="row justify-content-start">
         <div class="col-md-12">
-            <span class="f32 text-center">Getting started with PyScript is <b>very easy</b></span>
+            <span class="f32 text-center"><em>Hello World</em> PyScript Example</span>
             <br/>
             <py-md>
                 ```html
@@ -562,44 +573,34 @@
 
 --- slide ---
 
-<div class="centered heading-bg heading-bg-2">
-    <h1>Why PyScript ?</h1>
-</div>
 
---- slide ---
 
-<div class="centered heading-bg heading-bg-2">
-    <h1>Well.... why not?</h1>
-</div>
+<!--<div class="centered heading-bg heading-bg-2">-->
+<!--    <h1>Why <code>&lt;py-script&gt;</code> ?</h1>-->
+<!--</div>-->
 
---- slide ---
+<!-- -&#45;&#45; slide -&#45;&#45;-->
+<!--<div class="anim">-->
+<!--    <div class="row justify-content-start">-->
+<!--        <div class="col-sm-12">-->
+<!--            <h1 class="title">Why <code>&lt;py-script&gt;</code> ?</h1>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row justify-content-start">-->
+<!--        <div class="col-md-12">-->
+<!--            <py-md>-->
+<!--                * The adoption of _hyphens_ is inline with-->
+<!--                [HTML Specs](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)-->
+<!--                on valid names-->
+<!--                    - This enforces the use of hyphens to avoid name conflicts between Web components, and future tags-->
+<!--                * Why not just `&lt;script type="text/python"&gt;` then ?-->
+<!--                * `text/python` is **not** an accepted [IAMA Media Type](https://www.iana.org/assignments/media-types/media-types.xhtml#text)-->
+<!--            </py-md>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div class="centered heading-bg heading-bg-2">
-    <h1>Why <code>&lt;py-script&gt;</code> ?</h1>
-</div>
-
---- slide ---
-<div class="anim">
-    <div class="row justify-content-start">
-        <div class="col-sm-12">
-            <h1 class="title">Why <code>&lt;py-script&gt;</code> ?</h1>
-        </div>
-    </div>
-    <div class="row justify-content-start">
-        <div class="col-md-12">
-            <py-md>
-                * The adoption of _hyphens_ is inline with
-                [HTML Specs](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
-                on valid names
-                    - This enforces the use of hyphens to avoid name conflicts between Web components, and future tags
-                * Why not just `&lt;script type="text/python"&gt;` then ?
-                * `text/python` is **not** an accepted [IAMA Media Type](https://www.iana.org/assignments/media-types/media-types.xhtml#text)
-            </py-md>
-        </div>
-    </div>
-</div>
-
---- slide ---
+<!-- -&#45;&#45; slide -&#45;&#45;-->
 
 <div class="centered heading-bg heading-bg-3">
     <h1 style="padding-top: 15rem;"> <em class="pyscript">PyScript</em> features </h1>
