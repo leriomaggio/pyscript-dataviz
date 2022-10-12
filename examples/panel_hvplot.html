@@ -21,26 +21,16 @@
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <py-config>
-        {
-            "autoclose_loader": true,
-            "runtimes": [{
-                "src": "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js",
-                "name": "pyodide-0.21.3",
-                "lang": "python"
-            }]
-        }
+        autoclose_loader = true
+        packages = ["matplotlib", "holoviews", "hvplot", "bokeh", "pandas",
+                    "numpy", "scikit-learn", "panel==0.13.1"]
+
+        [[runtimes]]
+        src = "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"
+        name = "pyodide-0.21.3"
+        lang = "python"
     </py-config>
     <link rel="stylesheet" href="examples.css" />
-    <py-env>
-        - panel
-        - matplotlib
-        - holoviews
-        - hvplot
-        - bokeh
-        - pandas
-        - numpy
-        - scikit-learn
-    </py-env>
 </head>
 <body>
 <div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
@@ -73,7 +63,7 @@
         </div>
     </div>
     <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
-        <div class="col mh-100" id="panel">
+        <div class="col mh-100" id="panel" style="width: 800px; height: auto">
         </div>
     </div>
 </div>
