@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
+    <py-config type="json">
         {
             "autoclose_loader": true,
             "runtimes": [{
@@ -32,7 +32,7 @@
     </py-config>
     <link rel="stylesheet" href="examples.css" />
     <py-env>
-        - panel
+        - panel==0.13.1
         - matplotlib
         - holoviews
         - hvplot
@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="row overflow-hidden" id="image" style="margin-top: 5rem; margin-left: 5rem;">
-        <div class="col mh-100" id="panel">
+        <div class="col mh-100" id="panel" style="width: 800px; height: auto">
         </div>
     </div>
 </div>
