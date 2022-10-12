@@ -297,7 +297,7 @@
                 **`pinned version`**:
 
                 ```html
-                 &lt;script defer src="https://pyscript.net/2022.05.1/pyscript.js"&gt;&lt;/script&gt;
+                 &lt;script defer src="https://pyscript.net/releases/2022.05.1/pyscript.js"&gt;&lt;/script&gt;
                 ```
             </py-md>
         </div>
