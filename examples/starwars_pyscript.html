@@ -32,21 +32,16 @@
 
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config type="json">
-        {
-            "autoclose_loader": true,
-            "runtimes": [{
-                "src": "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js",
-                "name": "pyodide-0.21.3",
-                "lang": "python"
-            }]
-        }
+    <py-config>
+        autoclose_loader = true
+        packages = ["networkx"]
+
+        [[runtimes]]
+        src = "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"
+        name = "pyodide-0.21.3"
+        lang = "python"
     </py-config>
     <link rel="stylesheet" href="examples.css" />
-
-    <py-env>
-        - networkx
-    </py-env>
 
 </head>
 <body>
