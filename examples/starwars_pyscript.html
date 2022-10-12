@@ -28,10 +28,11 @@
             border: 2px solid #2D2E35;
         }
     </style>
+    <script defer src="https://d3js.org/d3.v7.min.js"></script>
 
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
+    <py-config type="json">
         {
             "autoclose_loader": true,
             "runtimes": [{
@@ -42,13 +43,7 @@
         }
     </py-config>
     <link rel="stylesheet" href="examples.css" />
-    <script type="importmap">
-    {
-      "imports": {
-        "d3": "https://cdn.skypack.dev/d3@7"
-      }
-    }
-    </script>
+
     <py-env>
         - networkx
     </py-env>
@@ -102,8 +97,8 @@
 </div>
 
 <py-script>
-    import d3
     import js
+    from js import d3
 
     from dataclasses import dataclass
     from collections import namedtuple
