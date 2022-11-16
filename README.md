@@ -21,11 +21,11 @@ for complex data use cases.
 ## Slides
 
 Slides of the talk are hosted on this repo, and made available via **Netlify**: 
-[https://leriomaggio.github.io/pyscript-dataviz/talk/](https://leriomaggio.github.io/pyscript-dataviz/talk/)
+[https://pyscript-budapestbi22.netlify.app/](https://pyscript-budapestbi22.netlify.app/)
 
 
 ## Examples
 
 The collection of the examples are also hosted (and "deployed" 😉)
 on this repo, and available via **Netlify**: 
-[https://leriomaggio.github.io/pyscript-dataviz/examples/](https://leriomaggio.github.io/pyscript-dataviz/examples/)
+[https://pyscript-budapestbi22.netlify.app/examples/](https://pyscript-budapestbi22.netlify.app/examples/)
