@@ -49,7 +49,7 @@
 }
 
 #typewriter {
-    animation: hide 26.5s 1s;
+    animation: hide 46.5s 1s;
     font-family: var(--mono-font);
     height: 0;
     line-height: 2.2;
@@ -78,7 +78,7 @@
 }
 
 .line1 {
-    animation: type 1s 2s steps(20, end) forwards;
+    animation: type 1s 2s steps(30, end) forwards;
     color: #9CD9F0;
 }
 
@@ -87,30 +87,30 @@
 }
 
 .line2 {
-    animation: type 1s 3.7s steps(20, end) forwards;
+    animation: type 1s 3.7s steps(30, end) forwards;
     color: #888;
 }
 
 .cursor2 {
-    animation: blink 1s 3.9s 1 forwards;
+    animation: blink 1s 4.0s 1 forwards;
 }
 
 .line3 {
-    animation: type .7s 5.4s steps(20, end) forwards;
+    animation: type .7s 6.0s steps(30, end) forwards;
     color: #FFAE57;
 }
 
 .cursor3 {
-    animation: blink 1s 5.6s 1 forwards;
+    animation: blink 1s 6.3s 1 forwards;
 }
 
 .line4 {
-    animation: type 1s 7.1s steps(20, end) forwards;
+    animation: type 1s 7.1s steps(30, end) forwards;
     color: #9CD9F0;
 }
 
 .cursor4 {
-    animation: blink 1s 7.3s 4 forwards;
+    animation: blink 1s 7.4s 8 forwards;
 }
 
 /* ----------------------------------
