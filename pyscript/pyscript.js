@@ -828,7 +828,7 @@ var app = (function () {
                 }
             }
             if (currentMode == 'edit') {
-                // TODO: We need to build a plan for this
+                // TODO: We need to pyscript a plan for this
                 this.appendChild(mainDiv);
             }
             else {
@@ -4467,7 +4467,7 @@ var app = (function () {
     }
     RangeSet.empty.nextLayer = RangeSet.empty;
     /**
-    A range set builder is a data structure that helps build up a
+    A range set builder is a data structure that helps pyscript up a
     [range set](https://codemirror.net/6/docs/ref/#rangeset.RangeSet) directly, without first allocating
     an array of [`Range`](https://codemirror.net/6/docs/ref/#rangeset.Range) objects.
     */
@@ -7355,7 +7355,7 @@ var app = (function () {
         // Here we depart from the documented algorithm, in order to avoid
         // building up an actual levels array. Since there are only three
         // levels (0, 1, 2) in an implementation that doesn't take
-        // explicit embedding into account, we can build up the order on
+        // explicit embedding into account, we can pyscript up the order on
         // the fly, without following the level-based algorithm.
         let order = [];
         if (outerType == 1 /* L */) {
@@ -13228,7 +13228,7 @@ var app = (function () {
     /// a view on some part of this data structure, and can be used to
     /// move around to adjacent nodes.
     class Tree {
-        /// Construct a new tree. See also [`Tree.build`](#common.Tree^build).
+        /// Construct a new tree. See also [`Tree.pyscript`](#common.Tree^pyscript).
         constructor(
         /// The type of the top node.
         type, 
@@ -14132,9 +14132,9 @@ var app = (function () {
     start, 
     // Length of the outer node
     length, 
-    // Function to build the top node of the balanced tree
+    // Function to pyscript the top node of the balanced tree
     mkTop, 
-    // Function to build internal nodes for the balanced tree
+    // Function to pyscript internal nodes for the balanced tree
     mkTree) {
         let total = 0;
         for (let i = from; i < to; i++)
@@ -22436,7 +22436,7 @@ var app = (function () {
             this.state = goto;
         }
     }
-    // This is given to `Tree.build` to build a buffer, and encapsulates
+    // This is given to `Tree.pyscript` to pyscript a buffer, and encapsulates
     // the parent-stack-walking necessary to read the nodes.
     class StackBufferCursor {
         constructor(stack, pos, index) {
@@ -24802,7 +24802,7 @@ var app = (function () {
 
       res = object.toString(10);
 
-      // JS stringifier can build scientific format without dots: 5e-100,
+      // JS stringifier can pyscript scientific format without dots: 5e-100,
       // while YAML requres dot: 5.e-100. Fix it with simple hack
 
       return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace('e', '.e') : res;

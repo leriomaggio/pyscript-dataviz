@@ -619,7 +619,7 @@
     <div class="row justify-content-start">
         <div class="col-md-12">
             <img alt="PyScript Architecture Schematic" style="max-width: 45%; margin-left: 20rem;"
-                 src="./themes/imgs/pyscript_arch.png" />
+                 src="themesmgs/pyscript_arch.png" />
             <span class="text-center" style="font-size: 16px"><b>Credits:</b> @fpliger & @pwang</span>
             <py-md>
                 * Therefore, Pyscript 💜 JS
@@ -964,7 +964,7 @@ fig1
 --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/matplotlib.html" title="Feature Correlation with Matplotlib"></iframe>
+    <iframe src="examples/matplotlib.html" title="Feature Correlation with Matplotlib"></iframe>
 </div>
 
  --- slide ---
@@ -1010,7 +1010,7 @@ fig1
 --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/seaborn.html" title="Feature Correlation Heatmap with Seaborn"></iframe>
+    <iframe src="examples/seaborn.html" title="Feature Correlation Heatmap with Seaborn"></iframe>
 </div>
 
  --- slide ---
@@ -1060,7 +1060,7 @@ fig1
 --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/bokeh.html" title="Interactive Dimension Reduction with Bokeh"></iframe>
+    <iframe src="examples/bokeh.html" title="Interactive Dimension Reduction with Bokeh"></iframe>
 </div>
 
  --- slide ---
@@ -1137,7 +1137,7 @@ fig1
  --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/panel_hvplot.html" title="Interactive Dimension Reduction with Panel and HvPlot"></iframe>
+    <iframe src="examples/panel_hvplot.html" title="Interactive Dimension Reduction with Panel and HvPlot"></iframe>
 </div>
 
 --- slide ---
@@ -1187,7 +1187,7 @@ fig1
 --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/networkx.html" title="NetworkX and Matplotlib"></iframe>
+    <iframe src="examples/networkx.html" title="NetworkX and Matplotlib"></iframe>
 </div>
 
  --- slide ---
@@ -1228,7 +1228,7 @@ fig1
 --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/networkx_d3.html" title="NetworkX and D3.js"></iframe>
+    <iframe src="examples/networkx_d3.html" title="NetworkX and D3.js"></iframe>
 </div>
 
  --- slide ---
@@ -1318,7 +1318,7 @@ fig1
 --- slide ---
 
 <div class="demo">
-    <iframe src="../examples/starwars_pyscript.html" title="Star Wars Social Network"></iframe>
+    <iframe src="examples/starwars_pyscript.html" title="Star Wars Social Network"></iframe>
 </div>
 
  --- slide ---
