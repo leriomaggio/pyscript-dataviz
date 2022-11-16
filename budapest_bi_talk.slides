@@ -755,549 +755,511 @@ EXAMPLES section (all examples are included as iframes from the examples folder)
 ===========================================================================================
 -->
 
-<!-- -&#45;&#45; slide -&#45;&#45;-->
+--- slide ---
+<div>
+    <div class="row justify-content-around">
+        <div class="col-md-12">
+            <div class="container-card">
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Matplotlib</h2>
+                        <p>
+                            We will be using the Wine Dataset from <code>scikit-learn</code> to
+                            plot a correlation feature matrix using
+                            <a href="https://matplotlib.org/"
+                               target="_blank" title="Matplotlib">Matplotlib</a>
+                            and <a href="https://pandas.pydata.org/" target="_blank"
+                                   title="Pandas">Pandas</a>
+                        </p>
+                    </div>
+                </div>
 
-<!--<div>-->
-<!--    <div class="row justify-content-around">-->
-<!--        <div class="col-md-12">-->
-<!--            <div class="container-card">-->
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>Matplotlib</h2>-->
-<!--                        <p>-->
-<!--                            We will be using the Wine Dataset from <code>scikit-learn</code> to-->
-<!--                            plot a correlation feature matrix using-->
-<!--                            <a href="https://matplotlib.org/"-->
-<!--                               target="_blank" title="Matplotlib">Matplotlib</a>-->
-<!--                            and <a href="https://pandas.pydata.org/" target="_blank"-->
-<!--                                   title="Pandas">Pandas</a>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Seaborn</h2>
+                        <p>
+                            We will take a step further in visualising feature correlations
+                            in the Wine Dataset. This time we will plot a HeatMap
+                            using <a href="https://seaborn.pydata.org/"
+                               target="_blank" title="Seaborn">Seaborn</a>.
+                        </p>
+                    </div>
+                </div>
 
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>Seaborn</h2>-->
-<!--                        <p>-->
-<!--                            We will take a step further in visualising feature correlations-->
-<!--                            in the Wine Dataset. This time we will plot a HeatMap-->
-<!--                            using <a href="https://seaborn.pydata.org/"-->
-<!--                               target="_blank" title="Seaborn">Seaborn</a>.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Bokeh</h2>
+                        <p>
+                            We will generate an interactive dimension reduction features in the
+                            Wine dataset
+                            using <code>PCA</code> and <a href="http://docs.bokeh.org/en/latest/"
+                               target="_blank" title="Bokeh">Bokeh</a>.
+                        </p>
+                    </div>
+                </div>
 
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>Bokeh</h2>-->
-<!--                        <p>-->
-<!--                            We will generate an interactive dimension reduction features in the-->
-<!--                            Wine dataset-->
-<!--                            using <code>PCA</code> and <a href="http://docs.bokeh.org/en/latest/"-->
-<!--                               target="_blank" title="Bokeh">Bokeh</a>.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Panel &amp; HvPlot</h2>
+                        <p>
+                            Simple and quick full-Python interactive webapp using
+                            using
+                            <a href="https://panel.holoviz.org/"
+                               target="_blank" title="Panel">Panel</a> and
+                            <a href="https://hvplot.holoviz.org/"
+                               target="_blank" title="HvPlot">HvPlot</a>.
+                        </p>
+                    </div>
+                </div>
 
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>Panel &amp; HvPlot</h2>-->
-<!--                        <p>-->
-<!--                            Simple and quick full-Python interactive webapp using-->
-<!--                            using-->
-<!--                            <a href="https://panel.holoviz.org/"-->
-<!--                               target="_blank" title="Panel">Panel</a> and-->
-<!--                            <a href="https://hvplot.holoviz.org/"-->
-<!--                               target="_blank" title="HvPlot">HvPlot</a>.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>NetworkX</h2>-->
-<!--                        <p>-->
-<!--                            We will show a simple networkX example using-->
-<!--                            <a href="https://networkx.org/"-->
-<!--                               target="_blank" title="Networkx">NetworkX</a> and-->
-<!--                            <code>&lt;py-script&gt;</code>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>NetworkX and D3.js</h2>-->
-<!--                        <p>-->
-<!--                            We will take a step further, and we will see an-->
-<!--                            example demonstrating the integration of-->
-<!--                            <a href="https://networkx.org/"-->
-<!--                               target="_blank" title="Networkx">NetworkX</a> with-->
-<!--                            <code>d3.js</code> via-->
-<!--                            <code>&lt;py-script&gt;</code>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="card">-->
-<!--                    <div class="card-content">-->
-<!--                        <h2>Star Wars Social Network w/ D3.js</h2>-->
-<!--                        <p>-->
-<!--                            We will have fun creating a full-Python based-->
-<!--                            <code>d3.js</code> webapp.-->
-<!--                            How cool it would be if we could..<code>import d3</code>?-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/matplotlib.html" title="Feature Correlation with Matplotlib"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Matplotlib: A look at the code</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-env&gt;-->
-<!--                    - matplotlib-->
-<!--                    - scikit-learn-->
-<!--                &lt;/py-env&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                **`Python`**:-->
-<!--                ```python-->
-<!--                import matplotlib.pyplot as plt-->
-
-<!--                from sklearn.datasets import load_wine-->
-<!--                from pandas.plotting import scatter_matrix-->
-
-<!--                features, _ = load_wine(as_frame=True, return_X_y=True)-->
-
-<!--                fig, ax = plt.subplots(figsize=(16, 12))-->
-<!--                ax.set_aspect('equal')-->
-<!--                _ = scatter_matrix(features, ax=ax)-->
-
-<!--                # really interesting bit here!-->
-<!--                Element("mpl").write(fig)  # PyScript DOM API-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/seaborn.html" title="Feature Correlation Heatmap with Seaborn"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Seaborn: A look at the code</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-env&gt;-->
-<!--                    - matplotlib-->
-<!--                    - seaborn-->
-<!--                    - scikit-learn-->
-<!--                &lt;/py-env&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                **`Python`**:-->
-<!--                ```python-->
-<!--                import matplotlib.pyplot as plt-->
-<!--                from sklearn.datasets import load_wine-->
-<!--                import seaborn as sns-->
-
-<!--                features, _ = load_wine(as_frame=True, return_X_y=True)-->
-
-<!--                fig, ax = plt.subplots(figsize=(14, 12))-->
-<!--                ax.set_aspect('equal')-->
-
-<!--                # seaborn code-->
-<!--                cmap = sns.diverging_palette(10, 220, as_cmap=True)-->
-<!--                corr = features.corr()-->
-<!--                sns.heatmap(corr, vmin=-1.0, vmax=1.0, square=True, cmap=cmap, cbar=True, ax=ax)-->
-
-<!--                Element("seaborn").write(fig)  # PyScript DOM API-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/bokeh.html" title="Interactive Dimension Reduction with Bokeh"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Bokeh: A look at the code 1/2</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-env&gt;-->
-<!--                    - bokeh-->
-<!--                    - pandas-->
-<!--                    - scikit-learn-->
-<!--                &lt;/py-env&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"&gt;-->
-<!--                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js"&gt;-->
-<!--                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"&gt;-->
-<!--                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"&gt;-->
-<!--                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js"&gt;-->
-<!--                &lt;script type="text/javascript"&gt;-->
-<!--                    Bokeh.set_log_level("info");-->
-<!--                &lt;/script&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Bokeh: A look at the code 2/2</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                **`Python`**:-->
-<!--                ```python-->
-<!--                import json-->
-<!--                from js import Bokeh, JSON-->
-<!--                from bokeh.embed import json_item-->
-
-<!--                from bokeh.plotting import figure-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                p = figure(plot_width=1024, plot_height=768,-->
-<!--                            x_axis_label="First Principal Component",-->
-<!--                            y_axis_label="Second Principal Component",-->
-<!--                            title="...")-->
-
-<!--                [...]  # create p.scatter(...)-->
-<!--                p_json = json.dumps(json_item(p, "bokeh"))-->
-<!--                Bokeh.embed.embed_item(JSON.parse(p_json))-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/panel_hvplot.html" title="Interactive Dimension Reduction with Panel and HvPlot"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Panel-HvPlot: A look at the code</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-env&gt;-->
-<!--                    - panel-->
-<!--                    - matplotlib-->
-<!--                    - hvplot-->
-<!--                    - bokeh-->
-<!--                &lt;/py-env&gt;-->
-
-<!--                &lt;script src="https://unpkg.com/@holoviz/panel@0.13.1/dist/panel.min.js" type="text/javascript"&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                **`Python`**:-->
-<!--                ```python-->
-<!--                EXTENSIONS = ["matplotlib", "bokeh"]-->
-<!--                hvplot.extension('matplotlib', 'bokeh')-->
-<!--                select_extension = pn.widgets.Select(options=EXTENSIONS, name="HvPlot Extensions")-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                @pn.depends(select_extension)-->
-<!--                def choose_extension(select_extension):-->
-<!--                    hvplot.output(backend=select_extension)-->
-<!--                    return df.hvplot.scatter(x='X0', y='X1', by='Class')-->
-
-<!--                pn.Column(select_extension, choose_extension).servable(target="panel");-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/networkx.html" title="NetworkX and Matplotlib"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">NetworkX: A look at the code</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-env&gt;-->
-<!--                    - networkx-->
-<!--                    - matplotlib-->
-<!--                &lt;/py-env&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                 **`Python`**:-->
-<!--                ```python-->
-<!--                import networkx as nx-->
-<!--                import matplotlib.pyplot as plt-->
-
-<!--                fig, ax = plt.subplots()-->
-<!--                G = nx.complete_graph(10)-->
-<!--                nx.draw(G, ax=ax)-->
-
-<!--                Element("networkx").write(fig)  # PyScript DOM API-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/networkx_d3.html" title="NetworkX and D3.js"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">NetworkX and D3.js: A look at the code 1/2</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-env&gt;-->
-<!--                    - networkx-->
-<!--                    - matplotlib-->
-<!--                &lt;/py-env&gt;-->
-<!--                &lt;script type="importmap"&gt;-->
-<!--                    {-->
-<!--                      "imports": {-->
-<!--                        "d3": "https://cdn.skypack.dev/d3@7"-->
-<!--                      }-->
-<!--                    }-->
-<!--                &lt;/script&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```html-->
-<!--                &lt;py-config&gt;-->
-<!--                  autoclose_loader: false-->
-<!--                  runtimes:-->
-<!--                    - src: "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"-->
-<!--                      name: pyodide-0.21.3-->
-<!--                      lang: python-->
-<!--                &lt;/py-config&gt;-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">NetworkX and D3.js: A look at the code 2/2</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                import d3-->
-<!--                import js-->
-<!--                from pyodide.ffi import create_proxy, to_js-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                G = nx.complete_graph(10)-->
-<!--                node_list = [{"id": node[0], "name": node[1]} for node in G.nodes(data=True)]-->
-<!--                edge_list = [{"source": edge[0], "target": edge[1]} for edge in nx.to_edgelist(G)]-->
-<!--                nodes, edges = to_js(node_list), to_js(edge_list, dict_converter=js.Object.fromEntries)-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                @create_proxy-->
-<!--                def ticked():-->
-<!--                    (link.attr("x1", lambda d, *_: d.source.x)-->
-<!--                         .attr("y1", lambda d, *_: d.source.y)-->
-<!--                         .attr("x2", lambda d, *_: d.target.x)-->
-<!--                         .attr("y2", lambda d, *_: d.target.y))-->
-<!--                    [...]-->
-<!--                simulation = (d3.forceSimulation(nodes)-->
-<!--                              .force("link", d3.forceLink().id(id_fn).links(edges))-->
-<!--                              .force("charge", d3.forceManyBody().strength(-1500))-->
-<!--                              .on("tick", ticked))-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="demo">-->
-<!--    <iframe src="examples/starwars_pyscript.html" title="Star Wars Social Network"></iframe>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Star Wars Social Network: A look at the code 1/2</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                import d3-->
-<!--                import js-->
-
-<!--                from dataclasses import dataclass-->
-<!--                from collections import namedtuple-->
-<!--                from math import sqrt-->
-
-<!--                from js import document-->
-<!--                from pyodide.ffi import create_proxy, to_js-->
-<!--                from pyodide.http import pyfetch-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                async def fetch_data(data_url):-->
-<!--                    response = await pyfetch(url=data_url, method="GET")-->
-<!--                    graph_data = await response.json()-->
-<!--                    [...]  # data encapsulation in Data Classes-->
-
-<!--                    characters = to_js(characters, dict_converter=js.Array.new)-->
-<!--                    interactions = to_js(interactions, dict_converter=js.Map.new)-->
-
-<!--                    graph = Graph(nodes=characters, links=interactions)-->
-<!--                    return graph-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- -&#45;&#45; slide -&#45;&#45;-->
-
-<!--<div class="anim">-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-sm-12">-->
-<!--            <h1 class="title">Star Wars Social Network: A look at the code 2/2</h1>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row justify-content-start">-->
-<!--        <div class="col-md-12">-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                graph = await fetch_data(data_url)-->
-
-<!--                simulation = (d3.forceSimulation(graph.nodes)-->
-<!--                              .force("link", d3.forceLink().id(create_proxy(lambda d, *_: d.id))-->
-<!--                                     .links(graph.links)))-->
-<!--                node, link, text = setup_svg_graph(graph, svg,-->
-<!--                                                   drag_fn=(drag_started, dragged, drag_ended))-->
-<!--                simulation.on("tick", ticked)  # pass in JsProxy objects-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--            <py-md>-->
-<!--                ```python-->
-<!--                @create_proxy-->
-<!--                async def on_change(*args, **kwargs):-->
-<!--                    episode = js.document.getElementById("episodes").value-->
-<!--                    await starwars_interactions_d3(episode)-->
-
-<!--                document.getElementById("episodes").addEventListener("change", on_change);-->
-<!--                starwars_interactions_d3(1)-->
-<!--                ```-->
-<!--            </py-md>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+                <div class="card">
+                    <div class="card-content">
+                        <h2>NetworkX</h2>
+                        <p>
+                            We will show a simple networkX example using
+                            <a href="https://networkx.org/"
+                               target="_blank" title="Networkx">NetworkX</a> and
+                            <code>&lt;py-script&gt;</code>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>NetworkX and D3.js</h2>
+                        <p>
+                            We will take a step further, and we will see an
+                            example demonstrating the integration of
+                            <a href="https://networkx.org/"
+                               target="_blank" title="Networkx">NetworkX</a> with
+                            <code>d3.js</code> via
+                            <code>&lt;py-script&gt;</code>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Star Wars Social Network w/ D3.js</h2>
+                        <p>
+                            We will have fun creating a full-Python based
+                            <code>d3.js</code> webapp.
+                            How cool it would be if we could..<code>import d3</code>?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 --- slide ---
+<div class="demo">
+    <iframe src="examples/matplotlib.html" title="Feature Correlation with Matplotlib"></iframe>
+</div>
 
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Matplotlib: A look at the code</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```html
+                &lt;py-config&gt;
+                    packages = ["matplotlib", "scikit-learn", "pandas"]
+                &lt;/py-config&gt;
+                ```
+            </py-md>
+            <py-md>
+                **`Python`**:
+                ```python
+                import matplotlib.pyplot as plt
+
+                from sklearn.datasets import load_wine
+                from pandas.plotting import scatter_matrix
+
+                features, _ = load_wine(as_frame=True, return_X_y=True)
+
+                fig, ax = plt.subplots(figsize=(16, 12))
+                ax.set_aspect('equal')
+                _ = scatter_matrix(features, ax=ax)
+
+                # really interesting bit here!
+                Element("mpl").write(fig)  # PyScript DOM API
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="demo">
+    <iframe src="examples/seaborn.html" title="Feature Correlation Heatmap with Seaborn"></iframe>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Seaborn: A look at the code</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```html
+                &lt;py-config&gt;
+                    packages = ["seaborn", "matplotlib", "scikit-learn"]
+                &lt;/py-config&gt;
+                ```
+            </py-md>
+            <py-md>
+                **`Python`**:
+                ```python
+                import matplotlib.pyplot as plt
+                from sklearn.datasets import load_wine
+                import seaborn as sns
+
+                features, _ = load_wine(as_frame=True, return_X_y=True)
+
+                fig, ax = plt.subplots(figsize=(14, 12))
+                ax.set_aspect('equal')
+
+                # seaborn code
+                cmap = sns.diverging_palette(10, 220, as_cmap=True)
+                corr = features.corr()
+                sns.heatmap(corr, vmin=-1.0, vmax=1.0, square=True, cmap=cmap, cbar=True, ax=ax)
+
+                Element("seaborn").write(fig)  # PyScript DOM API
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+
+--- slide ---
+<div class="demo">
+    <iframe src="examples/bokeh.html" title="Interactive Dimension Reduction with Bokeh"></iframe>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Bokeh: A look at the code 1/2</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```html
+                &lt;py-config&gt;
+                packages = ["bokeh", "pandas", "scikit-learn"]
+                &lt;/py-config&gt;
+                ```
+            </py-md>
+            <py-md>
+                ```html
+                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"&gt;
+                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js"&gt;
+                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"&gt;
+                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"&gt;
+                &lt;script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js"&gt;
+                &lt;script type="text/javascript"&gt;
+                    Bokeh.set_log_level("info");
+                &lt;/script&gt;
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Bokeh: A look at the code 2/2</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                **`Python`**:
+                ```python
+                import json
+                from js import Bokeh, JSON
+                from bokeh.embed import json_item
+
+                from bokeh.plotting import figure
+                ```
+            </py-md>
+            <py-md>
+                ```python
+                p = figure(plot_width=1024, plot_height=768,
+                            x_axis_label="First Principal Component",
+                            y_axis_label="Second Principal Component",
+                            title="...")
+
+                [...]  # create p.scatter(...)
+                p_json = json.dumps(json_item(p, "bokeh"))
+                Bokeh.embed.embed_item(JSON.parse(p_json))
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="demo">
+    <iframe src="examples/panel_hvplot.html" title="Interactive Dimension Reduction with Panel and HvPlot"></iframe>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Panel-HvPlot: A look at the code</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```html
+                &lt;py-config&gt;
+                packages = ["matplotlib", "holoviews", "hvplot", "bokeh", "pandas",
+                            "numpy", "scikit-learn", "panel==0.13.1"]
+                &lt;/py-config&gt;
+
+                &lt;script src="https://unpkg.com/@holoviz/panel@0.13.1/dist/panel.min.js" type="text/javascript"&gt;
+                ```
+            </py-md>
+            <py-md>
+                **`Python`**:
+                ```python
+                EXTENSIONS = ["matplotlib", "bokeh"]
+                hvplot.extension('matplotlib', 'bokeh')
+                select_extension = pn.widgets.Select(options=EXTENSIONS, name="HvPlot Extensions")
+                ```
+            </py-md>
+            <py-md>
+                ```python
+                @pn.depends(select_extension)
+                def choose_extension(select_extension):
+                    hvplot.output(backend=select_extension)
+                    return df.hvplot.scatter(x='X0', y='X1', by='Class')
+
+                pn.Column(select_extension, choose_extension).servable(target="panel");
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="demo">
+    <iframe src="examples/networkx.html" title="NetworkX and Matplotlib"></iframe>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">NetworkX: A look at the code</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```html
+                &lt;py-config&gt;
+                    packages = ["networkx", "matplotlib"]
+                &lt;/py-config&gt;
+                ```
+            </py-md>
+            <py-md>
+                 **`Python`**:
+                ```python
+                import networkx as nx
+                import matplotlib.pyplot as plt
+
+                fig, ax = plt.subplots()
+                G = nx.complete_graph(10)
+                nx.draw(G, ax=ax)
+
+                Element("networkx").write(fig)  # PyScript DOM API
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="demo">
+    <iframe src="examples/networkx_d3.html" title="NetworkX and D3.js"></iframe>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">NetworkX and D3.js: A look at the code 1/2</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```html
+                &lt;py-config&gt;
+                    packages = ["networkx"]
+
+                    [[runtimes]]
+                    src = "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"
+                    name = "pyodide-0.21.3"
+                    lang = "python"
+                &lt;/py-config&gt;
+                &lt;script defer src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">NetworkX and D3.js: A look at the code 2/2</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```python
+                import d3
+                import js
+                from pyodide.ffi import create_proxy, to_js
+                ```
+            </py-md>
+            <py-md>
+                ```python
+                G = nx.complete_graph(10)
+                node_list = [{"id": node[0], "name": node[1]} for node in G.nodes(data=True)]
+                edge_list = [{"source": edge[0], "target": edge[1]} for edge in nx.to_edgelist(G)]
+                nodes, edges = to_js(node_list), to_js(edge_list, dict_converter=js.Object.fromEntries)
+                ```
+            </py-md>
+            <py-md>
+                ```python
+                @create_proxy
+                def ticked():
+                    (link.attr("x1", lambda d, *_: d.source.x)
+                         .attr("y1", lambda d, *_: d.source.y)
+                         .attr("x2", lambda d, *_: d.target.x)
+                         .attr("y2", lambda d, *_: d.target.y))
+                    [...]
+                simulation = (d3.forceSimulation(nodes)
+                              .force("link", d3.forceLink().id(id_fn).links(edges))
+                              .force("charge", d3.forceManyBody().strength(-1500))
+                              .on("tick", ticked))
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="demo">
+    <iframe src="examples/starwars_pyscript.html" title="Star Wars Social Network"></iframe>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Star Wars Social Network: A look at the code 1/2</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```python
+                import d3
+                import js
+
+                from dataclasses import dataclass
+                from collections import namedtuple
+                from math import sqrt
+
+                from js import document
+                from pyodide.ffi import create_proxy, to_js
+                from pyodide.http import pyfetch
+                ```
+            </py-md>
+            <py-md>
+                ```python
+                async def fetch_data(data_url):
+                    response = await pyfetch(url=data_url, method="GET")
+                    graph_data = await response.json()
+                    [...]  # data encapsulation in Data Classes
+
+                    characters = to_js(characters, dict_converter=js.Array.new)
+                    interactions = to_js(interactions, dict_converter=js.Map.new)
+
+                    graph = Graph(nodes=characters, links=interactions)
+                    return graph
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
+<div class="anim">
+    <div class="row justify-content-start">
+        <div class="col-sm-12">
+            <h1 class="title">Star Wars Social Network: A look at the code 2/2</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-md-12">
+            <py-md>
+                ```python
+                graph = await fetch_data(data_url)
+
+                simulation = (d3.forceSimulation(graph.nodes)
+                              .force("link", d3.forceLink().id(create_proxy(lambda d, *_: d.id))
+                                     .links(graph.links)))
+                node, link, text = setup_svg_graph(graph, svg,
+                                                   drag_fn=(drag_started, dragged, drag_ended))
+                simulation.on("tick", ticked)  # pass in JsProxy objects
+                ```
+            </py-md>
+            <py-md>
+                ```python
+                @create_proxy
+                async def on_change(*args, **kwargs):
+                    episode = js.document.getElementById("episodes").value
+                    await starwars_interactions_d3(episode)
+
+                document.getElementById("episodes").addEventListener("change", on_change);
+                starwars_interactions_d3(1)
+                ```
+            </py-md>
+        </div>
+    </div>
+</div>
+
+--- slide ---
 <div class="centered">
     <h1>Demo of all Demos (this slideshow :) )</h1>
     <h2>Please have a look at the <i class="fa fa-github"></i>
         repo:
-        <a href="http://github.com/leriomaggio/pyscript-dataviz">github.com/leriomaggio/pyscript-dataviz</a>
+        <a href="https://github.com/leriomaggio/pyscript-dataviz/tree/budapest-bi22">
+            github.com/leriomaggio/pyscript-dataviz/tree/budapest-bi22
+        </a>
     </h2>
 </div>
 
