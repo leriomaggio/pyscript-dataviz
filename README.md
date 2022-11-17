@@ -1,22 +1,14 @@
-# Data visualisation in the browser with PyScript
+# Python in the Browser, and what does it mean for Data Science
 
 ## Abstract
 
-[PyScript](https://pyscript.net) is a new [open source](https://github.com/pyscript/pyscript) 
-framework that enables the creation of rich Python applications in the browser using HTML's 
-interface and the power of [Pyodide](https://pyodide.org/en/stable/), 
-[WASM](https://webassembly.org/), and modern web technologies. 
-Running Python directly in the browser has the great potential of completely change the way in 
-which Data Science can be delivered and democratised, using browsers as ubiquitous computational platforms. 
-Data Visualisation is perhaps one of the most impactful scenarios in which PyScript can 
-demonstrate its full potential, enabling seamless integrations of the Python/PyData stack with 
-native Javascript libraries (e.g. `d3.js`). 
+Since announcing PyScript in May, we’ve seen an outpouring of support, encouragement, 
+and creativity as users begin to test what’s possible when Python is unleashed in the browser. 
 
-In the first part of my talk, I will introduce the core features of PyScript, along with a 
-general description of how it works, and how the project is positioned within front-end 
-technologies' ecosystem. Afterwards, I will showcase several examples of  `data-viz` apps using 
-multiple libraries, demonstrating how PyScript can bridge the gap between Python and Javascript 
-for complex data use cases.
+PyScript has the potential to dramatically change the way in which data science can be delivered 
+and democratized, but getting there takes many steps. In this short talk, Valerio will try to 
+provide the gist of what PyScript is, how it works, and how this could be useful for 
+data science with practical examples.
 
 ## Slides
 
