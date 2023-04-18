@@ -30,17 +30,8 @@
     </style>
     <script defer src="https://d3js.org/d3.v7.min.js"></script>
 
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
-        autoclose_loader = true
-        packages = ["networkx"]
-
-        [[runtimes]]
-        src = "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"
-        name = "pyodide-0.21.3"
-        lang = "python"
-    </py-config>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.03.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2023.03.1/pyscript.js"></script>
     <link rel="stylesheet" href="examples.css" />
 
 </head>
@@ -91,6 +82,9 @@
     </div>
 </div>
 
+<py-config>
+    packages = ["networkx"]
+</py-config>
 <py-script>
     import js
     from js import d3
@@ -258,5 +252,11 @@
     document.getElementById("episodes").addEventListener("change", on_change);
     starwars_interactions_d3(1)
 </py-script>
+<a href="https://pyscript.com/view/37c8e61f-8cf6-4517-9652-2483b9db9016/725a35dd-e88f-44af-8e67-2d57a9b21fa3/latest/"><svg style="z-index:9997;position:fixed;bottom:0;right:0" viewBox="83.27 86.353 259.586 26.781" width="259.586" height="26.781">
+            <path d="M 227.175 86.396 L 168.855 86.458 C 158.655 86.44 149.685 88.219 141.925 91.888 C 134.035 95.618 126.125 99.342 118.245 103.083 C 110.435 106.796 109.327 108.991 99.048 108.854 C 89.045 108.721 85.71 113.134 83.27 113.134 L 83.815 113.046 C 105.275 113.025 126.725 113.029 148.185 113.029 C 173.925 113.029 199.665 113.018 225.405 113.052 C 226.385 113.052 227.185 112.612 227.185 112.06 C 227.125 98.082 227.125 100.379 227.185 86.402 L 227.175 86.396 Z" fill="#292929" style=""></path>
+            <path d="M 214.408 86.353 L 342.856 86.69 L 342.831 113.074 L 214.218 113.036 L 214.408 86.353 Z" fill="#292929" style=""></path>
+        </svg>
+        <div style="z-index:9998;color:#FFF;font-family:sans-serif;background-color:#292929;padding:2px 8px;position:fixed;bottom:0;right:0;left:0"></div>
+        <div style="z-index:9999;font-size: 0.7rem;color:#FFF;font-family:sans-serif;padding: 5px;position:fixed;bottom:0;right:0">Made on pyscript.com&nbsp;│&nbsp;View Code&nbsp;&nbsp;</div></a>
 </body>
 </html>
